@@ -4,4 +4,4 @@ config/Database.php
 
 # Mengabaikan seluruh folder
 vendor/
-storage/*.log
+storage/
