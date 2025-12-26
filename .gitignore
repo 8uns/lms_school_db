@@ -1,0 +1,7 @@
+# Mengabaikan file spesifik
+# config/database.php
+.env
+
+# Mengabaikan seluruh folder
+vendor/
+storage/*.log
