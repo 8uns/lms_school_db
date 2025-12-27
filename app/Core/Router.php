@@ -2,6 +2,8 @@
 
 namespace App\Core;
 
+use App\Core\View;
+
 
 class Router
 {
@@ -50,7 +52,7 @@ class Router
         }
 
         http_response_code(404);
-        header('Location: /notfound');
+        View::render('errors/404');
     }
 
 }

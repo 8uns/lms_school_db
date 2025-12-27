@@ -16,7 +16,7 @@ class HomeController extends View
         self::render('home/index', $model);
     }
 
-     function about(): void
+    function about(): void
     {
         $model = [
             'title' => 'About Us',
@@ -26,26 +26,10 @@ class HomeController extends View
         self::render('home/about', $model);
     }
 
-    // function login(): void
-    // {
-    //     self::render('/login');
-
-    //     $request = [
-    //         "username" => $_POST['username'],
-    //         "password" => $_POST['password'],
-    //     ];
-
-    //     $user = [
-    //         "username" => "bund",
-    //         "password" => "12345",
-    //         "name" => "bubuntut",
-    //     ];
-
-
-    //     $response = [
-    //         "message" => "Login Sukses",
-    //     ];
-    // }
+    function categories(string $productId, string $categoryId): void
+    {
+        echo "PRODUCT $productId, CATEGORY $categoryId";
+    }
 
     function register(): void
     {

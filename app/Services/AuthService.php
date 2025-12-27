@@ -3,22 +3,35 @@
 namespace App\Services;
 
 use App\Models\UserModel;
+use App\Core\Session;
 
 class AuthService
 {
     private UserModel $userModel;
+
     public function __construct()
     {
         $this->userModel = new UserModel();
     }
 
-    // ################# CONTOH PENERAPAN ###########################
-    public function login(string $user, string $pass)
+    public function login(string $username, string $password): bool
     {
-        $userData = $this->userModel->findByUsername($user);
-        if ($userData && password_verify($pass, $userData['password'])) {
-            return $userData; // Login Sukses
+        $user = $this->userModel->findByUsername($username);
+
+        if ($user && password_verify($password, $user['password'])) {
+            // Simpan data esensial ke session
+            Session::set('user_id', $user['id']);
+            Session::set('username', $user['username']);
+            Session::set('role', $user['role']);
+            Session::set('full_name', $user['full_name']);
+            return true;
         }
-        throw new \Exception("Username atau Password Salah");
+
+        return false;
+    }
+
+    public static function logout()
+    {
+        Session::destroy();
     }
 }
