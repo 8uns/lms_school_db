@@ -5,13 +5,15 @@
         "psr-4": {
             "App\\": "app/",
             "Config\\": "config/"
-        }
+        },
+        "files": [
+            "app/Core/Functions.php"
+        ]
     },
     "authors": [
         {
             "name": "Rafli J Kasim",
             "email": "jkasim840@gmail.com"
-
         }
     ],
     "require": {

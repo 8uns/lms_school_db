@@ -12,6 +12,10 @@
     <h1>
         Beranda mungkin
     </h1>
+
+    <a href="<?= base_url() . '/logout' ?>">
+        Logout
+    </a>
 </body>
 
 </html>

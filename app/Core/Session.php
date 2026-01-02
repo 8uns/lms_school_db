@@ -7,6 +7,22 @@ class Session
     public static function start()
     {
         if (session_status() == PHP_SESSION_NONE) {
+
+            // merubah penyimapanan session
+            $path = __DIR__ . '/../../../../../Project/temp_project';
+
+            if (!is_dir($path)) {
+                mkdir($path, 0777, true);
+            }
+
+            session_save_path($path);
+
+            session_set_cookie_params([
+                'path' => '/',
+                'httponly' => true,
+                'samesite' => 'Lax'
+            ]);
+
             session_start();
         }
     }
@@ -34,7 +50,7 @@ class Session
     {
         self::start();
         $message = $_SESSION['_flash'][$key] ?? null;
-        unset($_SESSION['_flash'][$key]); // Hapus setelah dibaca
+        // unset($_SESSION['_flash'][$key]); // Hapus setelah dibaca
         return $message;
     }
 

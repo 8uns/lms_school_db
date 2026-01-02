@@ -13,7 +13,7 @@ class HomeController extends View
             'content' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, sunt repellendus voluptas eligendi quod laboriosam rem ipsa quidem veniam, maiores laudantium iste. Iusto quod minus earum in cupiditate consequatur rem.',
         ];
 
-        self::render('home/index', $model);
+        self::render('index', $model);
     }
 
     function about(): void

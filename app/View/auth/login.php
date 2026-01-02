@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Login LMS</title>
 </head>
+
 <body>
-    <h2>Login LMS</h2>
-    
+
     <?php if ($error = \App\Core\Session::getFlash('error')): ?>
         <p style="color: red;"><?= $error ?></p>
     <?php endif; ?>
 
-    <form action="/login" method="POST">
+
+    <h2>Login LMS</h2>
+
+    <form action="<?= base_url() ?>/login" method="POST">
         <div>
             <label>Username</label>
             <input type="text" name="username" required>
@@ -22,4 +26,5 @@
         <button type="submit">Login</button>
     </form>
 </body>
+
 </html>

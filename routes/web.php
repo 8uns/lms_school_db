@@ -15,7 +15,9 @@ use App\Middlewares\AuthMiddleware;
 
 // Public Routes
 Router::add('GET', '/login', AuthController::class, 'login');
+Router::add('GET', '/logout', AuthController::class, 'logout');
 Router::add('POST', '/login', AuthController::class, 'postLogin');
+
 
 
 

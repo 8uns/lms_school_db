@@ -9,6 +9,7 @@ use App\Services\AuthService;
 class AuthController extends Controller
 {
     private AuthService $authService;
+    private $data;
 
     public function __construct()
     {
@@ -18,11 +19,10 @@ class AuthController extends Controller
 
     public function login()
     {
-        // Jika sudah login, jangan tampilkan form login lagi
         if (Session::get('user_id')) {
             $this->redirect('/');
         }
-        $this->view('login');
+        $this->view('auth/login');
     }
 
     public function postLogin()
