@@ -13,9 +13,10 @@ class SuperAdminDashboardController extends Controller
     }
     public function index(): void
     {
+        $data['page'] = 'Dashboard';
         $data['sidebar'] = Sidebar::get()['SuperAdmin'];
         $this->view('layouts/header');
-        $this->view('layouts/sidebar', $data['sidebar']);
+        $this->view('layouts/sidebar', $data);
         $this->view('layouts/dashboard');
         $this->view('layouts/footer');
     }

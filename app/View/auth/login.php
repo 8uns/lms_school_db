@@ -18,7 +18,7 @@
             Login LMS
         </h2>
         <div class="">
-            <form action="<?= base_url() ?>/login" method="POST">
+            <form action="<?= base_url('/login') ?>" method="POST">
                 <div class="mb-5 relative">
                     <label class="block text-sm">Username</label>
                     <i class="ri-account-circle-line absolute left-3 top-7 text-gray-400"></i>
