@@ -1,5 +1,10 @@
 <!-- sidebar start -->
-<div class="bg-white fixed left-0 top-0 w-64 h-full p-4 hidden md:block shadow shadow-black1/2">
+<?php
+
+var_dump($data);
+
+?>
+<div class="bg-white fixed  w-64 h-full p-4 hidden md:block shadow shadow-black1/2">
     <a href="#" class="flex items-center pb-4 border-b border-b-gray-600">
         <img src="https://placehold.co/32x32" alt="" class="w-10 h-10 rounded object-cover">
         <span class="text-lg ml-3 font-bold ">Logo</span>

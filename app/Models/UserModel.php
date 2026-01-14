@@ -26,7 +26,7 @@ class UserModel
         $stmt = $this->db->prepare("INSERT INTO users (username, password, full_name, role) VALUES (?, ?, ?, ?)");
         return $stmt->execute([
             $data['username'],
-            password_hash($data['password'], PASSWORD_BCRYPT),
+            password_hash($data['password'], PASSWORD_DEFAULT),
             $data['full_name'],
             $data['role']
         ]);

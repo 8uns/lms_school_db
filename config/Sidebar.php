@@ -7,6 +7,10 @@ class Sidebar
     public static function get(): array
     {
         return [
+            'SuperAdmin' => [
+                ['label' => 'Dashboard', 'url' => '/guru/dashboard', 'icon' => 'ri-dashboard-line'],
+                ['label' => 'Materi', 'url' => '/guru/materi', 'icon' => 'ri-book-line'],
+            ],
             'Guru' => [
                 ['label' => 'Dashboard', 'url' => '/guru/dashboard', 'icon' => 'ri-dashboard-line'],
                 ['label' => 'Materi', 'url' => '/guru/materi', 'icon' => 'ri-book-line'],
