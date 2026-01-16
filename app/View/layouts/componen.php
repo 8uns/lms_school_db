@@ -1,4 +1,4 @@
-<div class="p-20 bg-gray-100 flex justify-center min-h-screen">
+<div class="p-20 bg-gray-100 grid grid-cols-2 justify-center min-h-screen">
 
 
     <div class="bg-white p-10 rounded-2xl w-2xl">
@@ -32,7 +32,7 @@
             <input type="time" class="border text-gray-700 border-gray-400 bg-white w-full rounded-2xl py-3 px-10 text-sm" placeholder="form input ...">
         </div>
 
-            <!-- file-->
+        <!-- file-->
         <div class="mb-8 relative">
             <label for="" class="text-gray-600 text-sm">Label</label>
             <input type="file" class="border text-gray-700 border-gray-400 bg-white w-full rounded-2xl py-3 px-10 text-sm" placeholder="form input ...">
@@ -55,7 +55,12 @@
             </div>
         </div>
 
-        
+
+
+    </div>
+
+    <div class="bg-white p-10 rounded-2xl w-2xl">
+
         <!-- check box -->
         <div class="mb-8 relative grid grid-cols-6 gap-4">
             <div class="flex">
@@ -206,8 +211,45 @@
             </label>
         </div>
 
+
+        <!-- button primary -->
+        <div class="mb-8 relative">
+            <button type="button" class="bg-gradient-to-r from-blue-600 to-indigo-500 w-full rounded-2xl text-white py-3 h-13 mt-6 hover:from-blue-700 hover:to-indigo-600 transition-colors">
+                Submit
+            </button>
+        </div>
+
+
+        <!-- button secondary -->
+        <div class="mb-4 relative">
+            <button type="button" class="bg-gradient-to-r from-slate-500 to-slate-400 w-full rounded-2xl text-white py-3 h-13 mt-6 hover:from-slate-600 hover:to-slate-500 transition-all duration-300 shadow-md hover:shadow-lg active:scale-[0.98]">
+                Cancel
+            </button>
+        </div>
+
+        <!-- button success -->
+        <div class="mb-4 relative">
+            <button type="button" class="bg-gradient-to-r from-emerald-600 to-teal-500 w-full rounded-2xl text-white py-3 h-13 mt-6 hover:from-emerald-700 hover:to-teal-600 transition-all duration-300 shadow-md hover:shadow-lg active:scale-[0.98]">
+                Success
+            </button>
+        </div>
+
+        <!-- button danger -->
+        <div class="mb-4 relative">
+            <button type="button" class="bg-gradient-to-r from-rose-600 to-red-500 w-full rounded-2xl text-white py-3 h-13 mt-6 hover:from-rose-700 hover:to-red-600 transition-all duration-300 shadow-md hover:shadow-lg active:scale-[0.98]">
+                Danger
+            </button>
+        </div>
+
+        <!-- button warning -->
+        <div class="mb-4 relative">
+            <button type="button" class="bg-gradient-to-r from-orange-700 to-yellow-500 w-full rounded-2xl text-white py-3 h-13 mt-6 hover:from-orange-800 hover:to-yellow-600 transition-all duration-300 shadow-md hover:shadow-lg active:scale-[0.98]">
+                Warning
+            </button>
+        </div>
+
+
+
     </div>
-
-
 
 </div>
