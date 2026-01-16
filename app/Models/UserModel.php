@@ -31,4 +31,11 @@ class UserModel
             $data['role']
         ]);
     }
+
+     public function getUserAdmin()
+    {
+        $stmt = $this->db->prepare("SELECT * FROM users LIMIT 0,10");
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
 }

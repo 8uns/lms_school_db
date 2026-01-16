@@ -16,17 +16,24 @@ use App\Middlewares\RoleMiddleware;
 // );
 // Router::add('GET', '/products/([0-9a-zA-Z]*)/categories/([0-9a-zA-Z]*)', HomeController::class, 'categories', [AuthMiddleware::class]);
 
-// Public Routes
+// Auth & Register
 Router::add('GET', '/login', AuthController::class, 'login');
 Router::add('POST', '/login', AuthController::class, 'postLogin');
 Router::add('GET', '/register', RegisterController::class, 'register');
 Router::add('POST', '/register', RegisterController::class, 'postregister');
 Router::add('GET', '/logout', AuthController::class, 'logout');
+Router::add('GET', '/logout', AuthController::class, 'logout');
+
+
+
+// SuperAdmin Dashboard
+Router::add('GET', '/administrator/dashboard', SuperAdminDashboardController::class, 'index', [AuthMiddleware::class,  RoleMiddleware::class . ':SuperAdmin']);
+Router::add('GET', '/administrator/user/admin', SuperAdminDashboardController::class, 'userAdmin', [AuthMiddleware::class,  RoleMiddleware::class . ':SuperAdmin']);
 
 
 // Protected Routes (Butuh Login)
 Router::add('GET', '/', AuthController::class, 'index', [AuthMiddleware::class, RoleMiddleware::class . ':Admin,SuperAdmin,Guru,Siswa']);
-Router::add('GET', '/logout', AuthController::class, 'logout');
-Router::add('GET', '/administrator/dashboard', SuperAdminDashboardController::class, 'index', [AuthMiddleware::class,  RoleMiddleware::class . ':SuperAdmin']);
+
+
 
 Router::run();

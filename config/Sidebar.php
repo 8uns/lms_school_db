@@ -15,21 +15,21 @@ class Sidebar
                     'sublabel' => false,
                 ],
                 [
-                    'label' => 'Users',
-                    'url' => '/administrator/dashboard',
+                    'label' => 'User',
+                    'url' => '/administrator/user',
                     'icon' => 'ri-arrow-drop-right-line',
                     'sublabel' => [
                         [
                             'label' => 'Admin',
-                            'url' => '/administrator/dashboard',
+                            'url' => '/administrator/user/admin',
                         ],
                         [
                             'label' => 'Guru',
-                            'url' => '/administrator/dashboard',
+                            'url' => '/administrator/user/guru',
                         ],
                         [
                             'label' => 'Siswa',
-                            'url' => '/administrator/dashboard',
+                            'url' => '/administrator/user/siswa',
                         ],
                     ]
                 ],
