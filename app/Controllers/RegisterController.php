@@ -32,7 +32,8 @@ class RegisterController extends Controller
             Session::setFlash('doneregis', "Berhasil Melakukan Registrasi!");
             $this->redirect('/login');
         }
-        Session::setFlash('errorregist', "Gagal Melakukan Registrasi!");
+        Session::setFlash('error_message', "Gagal Melakukan Registrasi!");
+        $this->redirect('/login');
         return false;
     }
 }

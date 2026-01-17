@@ -3,6 +3,7 @@
 .env
 
 # Mengabaikan seluruh folder
+node_modules/
 vendor/
 storage/
 database/seeders/

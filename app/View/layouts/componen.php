@@ -214,36 +214,36 @@
 
         <!-- button primary -->
         <div class="mb-8 relative">
-            <button type="button" class="bg-gradient-to-r from-blue-600 to-indigo-500 w-full rounded-2xl text-white py-3 h-13 mt-6 hover:from-blue-700 hover:to-indigo-600 transition-colors">
+            <button type="button" class="cursor-pointer bg-gradient-to-r from-blue-600 to-indigo-500 w-full rounded-2xl text-white py-3 px-5 hover:from-blue-700 hover:to-indigo-600 transition-colors">
                 Submit
             </button>
         </div>
 
 
         <!-- button secondary -->
-        <div class="mb-4 relative">
-            <button type="button" class="bg-gradient-to-r from-slate-500 to-slate-400 w-full rounded-2xl text-white py-3 h-13 mt-6 hover:from-slate-600 hover:to-slate-500 transition-all duration-300 shadow-md hover:shadow-lg active:scale-[0.98]">
+        <div class="mb-8 relative">
+            <button type="button" class="cursor-pointer bg-gradient-to-r from-slate-500 to-slate-400 w-full rounded-2xl text-white py-3 px-5 hover:from-slate-600 hover:to-slate-500 transition-all duration-300 shadow-md hover:shadow-lg active:scale-[0.98]">
                 Cancel
             </button>
         </div>
 
         <!-- button success -->
-        <div class="mb-4 relative">
-            <button type="button" class="bg-gradient-to-r from-emerald-600 to-teal-500 w-full rounded-2xl text-white py-3 h-13 mt-6 hover:from-emerald-700 hover:to-teal-600 transition-all duration-300 shadow-md hover:shadow-lg active:scale-[0.98]">
+        <div class="mb-8 relative">
+            <button type="button" class="cursor-pointer bg-gradient-to-r from-emerald-600 to-teal-500 w-full rounded-2xl text-white py-3 px-5 hover:from-emerald-700 hover:to-teal-600 transition-all duration-300 shadow-md hover:shadow-lg active:scale-[0.98]">
                 Success
             </button>
         </div>
 
         <!-- button danger -->
-        <div class="mb-4 relative">
-            <button type="button" class="bg-gradient-to-r from-rose-600 to-red-500 w-full rounded-2xl text-white py-3 h-13 mt-6 hover:from-rose-700 hover:to-red-600 transition-all duration-300 shadow-md hover:shadow-lg active:scale-[0.98]">
+        <div class="mb-8 relative">
+            <button type="button" class="cursor-pointer bg-gradient-to-r from-rose-600 to-red-500 w-full rounded-2xl text-white py-3 px-5 hover:from-rose-700 hover:to-red-600 transition-all duration-300 shadow-md hover:shadow-lg active:scale-[0.98]">
                 Danger
             </button>
         </div>
 
         <!-- button warning -->
-        <div class="mb-4 relative">
-            <button type="button" class="bg-gradient-to-r from-orange-700 to-yellow-500 w-full rounded-2xl text-white py-3 h-13 mt-6 hover:from-orange-800 hover:to-yellow-600 transition-all duration-300 shadow-md hover:shadow-lg active:scale-[0.98]">
+        <div class="mb-8 relative">
+            <button type="button" class="cursor-pointer bg-gradient-to-r from-orange-700 to-yellow-500 w-full rounded-2xl text-white py-3 px-5 hover:from-orange-800 hover:to-yellow-600 transition-all duration-300 shadow-md hover:shadow-lg active:scale-[0.98]">
                 Warning
             </button>
         </div>

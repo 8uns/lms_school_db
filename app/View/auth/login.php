@@ -1,16 +1,3 @@
-<?php if ($error = get_flash('errorlogin')): ?>
-    <p style="color: red;"><?= $error ?></p>
-<?php endif; ?>
-
-<?php if ($error = get_flash('errorregist')): ?>
-    <p style="color: red;"><?= $error ?></p>
-<?php endif; ?>
-
-<?php if ($error = get_flash('doneregis')): ?>
-    <p style="color: seagreen;"><?= $error ?></p>
-<?php endif; ?>
-
-
 <div class="bg-gray-100 h-screen flex items-center justify-center">
     <div class="bg-white p-10 shadow shadow-black1/2 rounded-2xl w-2xl">
         <h2 class="text-center p-4 font-bold text-2xl mb-8">

@@ -23,6 +23,9 @@ class AuthController extends Controller
             $this->redirect('/');
         }
         $this->view('layouts/header');
+        if ($this->data['error_message'] = Session::getFlash('error_message')) {
+            $this->view('layouts/banner', $this->data);
+        }
         $this->view('auth/login');
         $this->view('layouts/footer');
     }
@@ -54,7 +57,7 @@ class AuthController extends Controller
                     $this->redirect('/');
             }
         } else {
-            Session::setFlash('errorlogin', 'Username atau Password salah!');
+            Session::setFlash('error_message', 'Username atau Password salah!');
             $this->redirect('/login');
         }
     }

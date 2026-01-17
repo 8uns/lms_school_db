@@ -22,4 +22,10 @@ class ProductController extends Controller
         $this->view('layouts/componen');
         $this->view('layouts/footer');
     }
+    public function card(): void
+    {
+        $this->view('layouts/header');
+        $this->view('layouts/card');
+        $this->view('layouts/footer');
+    }
 }

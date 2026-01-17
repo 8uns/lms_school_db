@@ -4,6 +4,7 @@
 namespace App\Models;
 
 use App\Core\Database;
+use Exception;
 
 class UserModel
 {
@@ -23,16 +24,20 @@ class UserModel
 
     public function create(array $data)
     {
-        $stmt = $this->db->prepare("INSERT INTO users (username, password, full_name, role) VALUES (?, ?, ?, ?)");
-        return $stmt->execute([
-            $data['username'],
-            password_hash($data['password'], PASSWORD_DEFAULT),
-            $data['full_name'],
-            $data['role']
-        ]);
+        try {
+            $stmt = $this->db->prepare("INSERT INTO users (username, password, full_name, role) VALUES (?, ?, ?, ?)");
+            return $stmt->execute([
+                $data['username'],
+                password_hash($data['password'], PASSWORD_DEFAULT),
+                $data['full_name'],
+                $data['role']
+            ]);
+        } catch (Exception $e) {
+            return false;
+        }
     }
 
-     public function getUserAdmin()
+    public function getUserAdmin()
     {
         $stmt = $this->db->prepare("SELECT * FROM users LIMIT 0,10");
         $stmt->execute();

@@ -37,5 +37,6 @@ Router::add('GET', '/', AuthController::class, 'index', [AuthMiddleware::class, 
 
 // Debug & Develop
 Router::add('GET', '/componen', ProductController::class, 'componen');
+Router::add('GET', '/card', ProductController::class, 'card');
 
 Router::run();
