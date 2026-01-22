@@ -1,5 +1,6 @@
 <!-- main start -->
-<div class="ml-0 md:ml-64 sm:ml-0 bg-gray-50 min-h-screen">
+<div class="ml-0 md:ml-72 sm:ml-0 bg-gray-100 min-h-screen">
+
     <div class="p-6">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div class="bg-white rounded-md border border-gray-100 p-6">

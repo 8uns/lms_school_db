@@ -1,5 +1,7 @@
 <!-- menu bar start-->
-<div x-data class="py-2 px-6 bg-white flex items-center shadow shadow-black1/2 h-18 md:ml-72 sm:ml-0 z-50 relative">
+<div x-data="{ open: false }"
+    @click.away="open = false"
+    class="py-2 px-6 bg-white flex items-center shadow shadow-black1/2 h-18 md:ml-72 sm:ml-0 z-50 relative">
     <button type="button" class="text-lg text-gray-600">
         <i class="ri-menu-line"></i>
     </button>
@@ -14,14 +16,14 @@
     </ul>
 
     <ul class="ml-auto flex items-center">
-        <li class="mr-1 text-gray-400 group nav-item" x-data="{ open: false }">
+        <li class="mr-1 text-gray-400 group nav-item">
             <button type="button"
-                @click="open = !open"
+                @click="open = (open === 'search' ? false : 'search')"
                 class="w-8 h-8 rounded flex items-center justify-center hover:bg-gray-50 hover:text-gray-600">
                 <i class="ri-search-2-line"></i>
             </button>
             <div
-                x-show="open"
+                x-show="open === 'search'"
                 class="absolute p-4 max-w-xs w-full right-3 top-19 bg-white rounded-md border border-gray-100 shadow shadow-black1/2">
                 <form action="" class="border-b border-b-gray-100">
                     <input type="text" placeholder="search..."
@@ -31,15 +33,15 @@
             </div>
         </li>
 
-        <li class="mr-1 text-gray-400 group nav-item" x-data="{ open: false }">
+        <li class="mr-1 text-gray-400 group nav-item">
             <button type="button"
-                @click="open = !open"
+                @click="open = (open === 'notification' ? false : 'notification')"
                 class="w-8 h-8 rounded flex items-center justify-center hover:bg-gray-50 hover:text-gray-600">
                 <i class="ri-notification-3-line"></i>
             </button>
 
             <div
-                x-show="open"
+                x-show="open === 'notification'"
                 class="absolute p-4 max-w-xs w-full right-3 top-19 bg-white rounded-md border border-gray-100 shadow shadow-black1/2">
                 <h6 class="text-gray-600 font-bold text-sm px-4 py-2">Notifikasi</h6>
                 <ul>
@@ -75,16 +77,16 @@
             </div>
         </li>
 
-        <li class="mr-1 text-gray-400 group nav-item" x-data="{ open: false }">
+        <li class="mr-1 text-gray-400 group nav-item">
             <button type="button"
-                @click="open = !open"
+                @click="open = (open === 'profile' ? false : 'profile')"
                 class="w-8 h-8 rounded flex items-center justify-center hover:bg-gray-50 hover:text-gray-600">
                 <!-- <img src="https://placehold.co/20x20" alt="" class="w-7 h-7 rounded-full object-cover"> -->
                 <i class="ri-account-circle-fill w-7 h-7 rounded-full text-3xl flex justify-center items-center"></i>
             </button>
 
             <div
-                x-show="open"
+                x-show="open === 'profile'"
                 class="absolute p-4 max-w-xs w-full right-3 top-19 bg-white rounded-md shadow shadow-black1/2">
                 <h5 class="text-gray-500 font-bold text-sm"><?= $full_name ?></h5>
                 <h6 class="text-gray-400 text-sm"><?= $role ?></h6>
