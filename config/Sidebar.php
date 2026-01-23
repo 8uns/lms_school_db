@@ -60,8 +60,8 @@ class Sidebar
                     'sublabel' => false
                 ],
                 [
-                    'label' => 'Akun Murid',
-                    'url' => '/admin/murid',
+                    'label' => 'Akun Siswa',
+                    'url' => '/admin/siswa',
                     'icon' => 'ri-user-5-fill',
                     'sublabel' => false
                 ],

@@ -40,8 +40,13 @@ Router::add('GET', '/administrator/user/admin/del/([0-9]*)', SuperAdminDashboard
 Router::add('GET', '/admin/dashboard', AdminDashboardController::class, 'index', [AuthMiddleware::class,  RoleMiddleware::class . ':Admin']); // dashboard admin
 Router::add('GET', '/admin/guru', AdminDashboardController::class, 'guru', [AuthMiddleware::class,  RoleMiddleware::class . ':Admin']); // menu manage guru
 Router::add('POST', '/admin/guru', AdminDashboardController::class, 'createGuru', [AuthMiddleware::class,  RoleMiddleware::class . ':Admin']); // create admin
-Router::add('POST', '/admin/guru/([0-9]*)', AdminDashboardController::class, 'updateGuru', [AuthMiddleware::class,  RoleMiddleware::class . ':Admin']); // update admin
-Router::add('GET', '/admin/guru/del/([0-9]*)', AdminDashboardController::class, 'deleteGuru', [AuthMiddleware::class,  RoleMiddleware::class . ':Admin']); // delete admin
+Router::add('POST', '/admin/guru/([0-9]*)', AdminDashboardController::class, 'updateGuru', [AuthMiddleware::class,  RoleMiddleware::class . ':Admin']); // update guru
+Router::add('GET', '/admin/guru/del/([0-9]*)', AdminDashboardController::class, 'deleteGuru', [AuthMiddleware::class,  RoleMiddleware::class . ':Admin']); // delete guru
+
+Router::add('GET', '/admin/siswa', AdminDashboardController::class, 'siswa', [AuthMiddleware::class,  RoleMiddleware::class . ':Admin']); // menu manage siswa
+Router::add('POST', '/admin/siswa', AdminDashboardController::class, 'createSiswa', [AuthMiddleware::class,  RoleMiddleware::class . ':Admin']); // create siswa
+Router::add('POST', '/admin/siswa/([0-9]*)', AdminDashboardController::class, 'updateSiswa', [AuthMiddleware::class,  RoleMiddleware::class . ':Admin']); // update siswa
+Router::add('GET', '/admin/siswa/del/([0-9]*)', AdminDashboardController::class, 'deleteSiswa', [AuthMiddleware::class,  RoleMiddleware::class . ':Admin']); // delete siswa
 
 
 

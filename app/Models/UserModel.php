@@ -40,6 +40,12 @@ class UserModel
         $stmt->execute();
         return $stmt->fetchAll();
     }
+    public function getSiswa()
+    {
+        $stmt = $this->db->prepare("SELECT * FROM users WHERE is_deleted = FALSE AND role = 'Siswa' LIMIT 0,10");
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
 
 
 
@@ -65,6 +71,12 @@ class UserModel
         return $this->create($data);
     }
 
+    public function createSiswa(array $data)
+    {
+        $data['role'] = 'Siswa';
+        return $this->create($data);
+    }
+
     // update data
     public function update(int $id, array $data)
     {
@@ -85,6 +97,13 @@ class UserModel
         $data['role'] = 'Guru';
         return $this->update($id, $data);
     }
+    public function updateSiswa(int $id, array $data)
+    {
+        $data['role'] = 'Siswa';
+        return $this->update($id, $data);
+    }
+
+
     public function updatePassword(int $id, string $newPassword)
     {
         try {

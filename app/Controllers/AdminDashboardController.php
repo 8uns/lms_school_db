@@ -29,6 +29,7 @@ class AdminDashboardController extends Controller
         $this->view('layouts/footer');
     }
 
+    // guru management
     public function guru(): void
     {
         $data['page'] = 'Akun Guru';
@@ -74,6 +75,55 @@ class AdminDashboardController extends Controller
         } else {
             // Gagal menghapus guru
             $this->redirect('/admin/guru');
+        }
+    }
+
+    // siswa management
+    public function siswa(): void
+    {
+        $data['page'] = 'Akun Siswa';
+        $data['subpage'] = false;
+        $data['full_name'] = $_SESSION['full_name'];
+        $data['role'] = $_SESSION['role'];
+        $data['sidebar'] = Sidebar::get()['Admin'];
+        $data['user'] = $this->userModel->getSiswa();
+        $this->view('layouts/header');
+        $this->view('layouts/sidebar', $data);
+        $this->view('layouts/navbar', $data);
+        $this->view('admin/siswa', $data);
+        $this->view('layouts/footer');
+    }
+
+    public function createSiswa(): void
+    {
+        if ($this->userModel->createSiswa($_POST)) {
+            // Berhasil membuat siswa
+            $this->redirect('/admin/siswa');
+        } else {
+            // Gagal membuat siswa
+            $this->redirect('/admin/siswa');
+        }
+    }
+
+    public function updateSiswa($id): void
+    {
+        if ($this->userModel->updateSiswa($id, $_POST)) {
+            // Berhasil mengupdate siswa
+            $this->redirect('/admin/siswa');
+        } else {
+            // Gagal mengupdate siswa
+            $this->redirect('/admin/siswa');
+        }
+    }
+
+    public function deleteSiswa($id): void
+    {
+        if ($this->userModel->delete($id)) {
+            // Berhasil menghapus siswa
+            $this->redirect('/admin/siswa');
+        } else {
+            // Gagal menghapus siswa
+            $this->redirect('/admin/siswa');
         }
     }
 }
