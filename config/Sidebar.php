@@ -73,7 +73,7 @@ class Sidebar
                 ],
                 [
                     'label' => 'Tahun Ajaran',
-                    'url' => '/admin/tahunajaran',
+                    'url' => '/admin/tahun-ajaran',
                     'icon' => 'ri-calendar-fill',
                     'sublabel' => false,
                 ],
