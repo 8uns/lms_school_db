@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\SuperAdmin;
 
 use App\Core\Controller;
 use App\Models\UserModel;

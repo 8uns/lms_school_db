@@ -1,13 +1,13 @@
 <?php
 
 use App\Core\Router;
-use App\Controllers\SuperAdminDashboardController;
-use App\Controllers\AdminDashboardController;
-use App\Controllers\AdminGuruController;
-use App\Controllers\AdminSiswaController;
-use App\Controllers\AdminClassroomController;
-use App\Controllers\AdminAcademicyearsController;
-use App\Controllers\AdminSubjectController;
+use App\Controllers\SuperAdmin\SuperAdminDashboardController;
+use App\Controllers\Admin\AdminDashboardController;
+use App\Controllers\Admin\AdminGuruController;
+use App\Controllers\Admin\AdminSiswaController;
+use App\Controllers\Admin\AdminClassroomController;
+use App\Controllers\Admin\AdminAcademicyearsController;
+use App\Controllers\Admin\AdminSubjectController;
 use App\Controllers\AuthController;
 use App\Controllers\ProductController;
 use App\Controllers\RegisterController;
@@ -30,7 +30,6 @@ Router::add('GET', '/register', RegisterController::class, 'register');
 Router::add('POST', '/register', RegisterController::class, 'postregister');
 Router::add('GET', '/logout', AuthController::class, 'logout');
 Router::add('GET', '/logout', AuthController::class, 'logout');
-
 
 
 #####// SuperAdmin Dashboard
