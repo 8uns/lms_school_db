@@ -55,7 +55,7 @@
                                                     userdata = {user_id : '<?= $user['id'] ?>', username : '<?= $user['username'] ?>', full_name : '<?= $user['full_name'] ?>', role : '<?= $user['role'] ?>'}; 
                                                     modaledit = !modaledit
                                                     "
-                                                        type="button" class="cursor-pointer  w-full rounded-2xl py-3 px-5 hover:from-slate-600 hover:to-slate-500 transition-all duration-300 shadow-md hover:shadow-lg active:scale-[0.98]">
+                                                        type="button" class="cursor-pointer  w-full rounded-2xl py-3 px-5 hover:from-slate-600 hover:to-slate-500 transition-all duration-300 hover:shadow-lg active:scale-[0.98]">
                                                         <i class="ri-edit-2-line"></i>
                                                     </button>
                                                 </div>
@@ -66,7 +66,7 @@
                                                     userdata = {user_id : '<?= $user['id'] ?>', full_name : '<?= $user['full_name'] ?>'}; 
                                                     modaldel = !modaldel
                                                     "
-                                                        type="button" class="cursor-pointer  w-full rounded-2xl py-3 px-5 hover:from-rose-700 hover:to-red-600 transition-all duration-300 shadow-md hover:shadow-lg active:scale-[0.98]">
+                                                        type="button" class="cursor-pointer  w-full rounded-2xl py-3 px-5 hover:from-rose-700 hover:to-red-600 transition-all duration-300 hover:shadow-lg active:scale-[0.98]">
                                                         <i class="ri-delete-bin-5-line"></i>
                                                     </button>
                                                 </div>
@@ -94,7 +94,7 @@
     </div>
 
     <!-- start modal form tambah user -->
-    <div class="fixed h-screen w-screen bg-black/50 left-0 top-0 z-50" x-show="modaladd">
+    <div class="fixed h-screen w-screen bg-black/50 left-0 top-0 z-50" x-cloak x-show="modaladd">
         <form action="<?= base_url('/administrator/user/admin') ?>" method="post">
             <div class="bg-white w-1/3 mx-auto mt-40 rounded-2xl p-10" @click.away="modaladd = false">
                 <div class="flex justify-between">
@@ -142,7 +142,7 @@
 
 
     <!-- start modal form edit user -->
-    <div class="fixed h-screen w-screen bg-black/50 left-0 top-0 z-50" x-show="modaledit">
+    <div class="fixed h-screen w-screen bg-black/50 left-0 top-0 z-50" x-cloak x-show="modaledit">
         <form :action="'<?= base_url('/administrator/user/admin') ?>/' + userdata.user_id" method="post">
             <div class="bg-white w-1/3 mx-auto mt-40 rounded-2xl p-10" @click.away="modaledit = false">
                 <div class="flex justify-between">
@@ -185,7 +185,7 @@
     <!-- end modal form edit user-->
 
     <!-- start modal delete user -->
-    <div class="fixed h-screen w-screen bg-black/50 left-0 top-0 z-50" x-show="modaldel">
+    <div class="fixed h-screen w-screen bg-black/50 left-0 top-0 z-50" x-cloak x-show="modaldel">
         <div class="bg-white w-1/3 mx-auto mt-40 rounded-2xl p-10">
             <div class="flex justify-center text-center">
                 <h6 class="text-lg mb-5 text-center">

@@ -40,7 +40,7 @@ Router::add('POST', '/administrator/user/admin/([0-9]*)', SuperAdminDashboardCon
 Router::add('GET', '/administrator/user/admin/del/([0-9]*)', SuperAdminDashboardController::class, 'deleteAdmin', [AuthMiddleware::class,  RoleMiddleware::class . ':SuperAdmin']); // delete admin
 
 
-#####// Admin Dashboard
+#####// ADMIN DASHBOARD
 Router::add('GET', '/admin/dashboard', AdminDashboardController::class, 'index', [AuthMiddleware::class,  RoleMiddleware::class . ':Admin']); // dashboard admin
 
 // guru management

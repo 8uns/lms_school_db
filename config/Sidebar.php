@@ -7,6 +7,7 @@ class Sidebar
     public static function get(): array
     {
         return [
+            // SUPER ADMIN SIDEBAR
             'SuperAdmin' => [
                 [
                     'CategoryLabel' => 'Main Menu',
@@ -17,26 +18,74 @@ class Sidebar
                     'icon' => 'ri-dashboard-fill',
                     'sublabel' => false,
                 ],
+                // [
+                //     'label' => 'User',
+                //     'url' => '/administrator/user',
+                //     'icon' => 'ri-arrow-drop-right-line',
+                //     'sublabel' => [
+                //         [
+                //             'label' => 'Admin',
+                //             'url' => '/administrator/user/admin',
+                //         ],
+                //         // [
+                //         //     'label' => 'Guru',
+                //         //     'url' => '/administrator/user/guru',
+                //         // ],
+                //         // [
+                //         //     'label' => 'Siswa',
+                //         //     'url' => '/administrator/user/siswa',
+                //         // ],
+                //     ]
+                // ],
+
                 [
-                    'label' => 'User',
-                    'url' => '/administrator/user',
-                    'icon' => 'ri-arrow-drop-right-line',
-                    'sublabel' => [
-                        [
-                            'label' => 'Admin',
-                            'url' => '/administrator/user/admin',
-                        ],
-                        // [
-                        //     'label' => 'Guru',
-                        //     'url' => '/administrator/user/guru',
-                        // ],
-                        // [
-                        //     'label' => 'Siswa',
-                        //     'url' => '/administrator/user/siswa',
-                        // ],
-                    ]
+                    'CategoryLabel' => 'User Management',
                 ],
+                [
+                    'label' => 'Akun Admin',
+                    'url' => '/administrator/user/admin',
+                    'icon' => 'ri-user-settings-fill',
+                    'sublabel' => false
+                ],
+
+                [
+                    'CategoryLabel' => 'Security & Audit',
+                ],
+                [
+                    'label' => 'Monitoring Log System',
+                    'url' => '/administrator/user/admin',
+                    'icon' => 'ri-mac-fill',
+                    'sublabel' => false
+                ],
+                [
+                    'label' => 'Force Logout User',
+                    'url' => '/administrator/user/admin',
+                    'icon' => 'ri-record-circle-fill',
+                    'sublabel' => false
+                ],
+
+                [
+                    'CategoryLabel' => 'Data Recovery',
+                ],
+                [
+                    'label' => 'Restore Deleted Data',
+                    'url' => '/administrator/user/admin',
+                    'icon' => 'ri-reply-all-fill',
+                    'sublabel' => false
+                ],
+
+                [
+                    'CategoryLabel' => 'Maintenance',
+                ],
+                [
+                    'label' => 'Backup & Restore Database',
+                    'url' => '/administrator/user/admin',
+                    'icon' => 'ri-hard-drive-3-fill',
+                    'sublabel' => false
+                ],
+
             ],
+            // ADMIN SIDEBAR
             'Admin' => [
 
 
@@ -120,15 +169,137 @@ class Sidebar
                 ],
 
             ],
+            // GURU SIDEBAR
+            'Guru' => [
+                [
+                    'CategoryLabel' => 'Main Menu',
+                ],
+                [
+                    'label' => 'Dashboard',
+                    'url' => '/admin/dashboard',
+                    'icon' => 'ri-dashboard-fill',
+                    'sublabel' => false,
+                ],
 
-            // 'Guru' => [
-            //     ['label' => 'Dashboard', 'url' => '/guru/dashboard', 'icon' => 'ri-dashboard-line'],
-            //     ['label' => 'Materi', 'url' => '/guru/materi', 'icon' => 'ri-book-line'],
-            // ],
-            // 'Siswa' => [
-            //     ['label' => 'Dashboard', 'url' => '/siswa/dashboard', 'icon' => 'ri-dashboard-line'],
-            //     ['label' => 'Tugas', 'url' => '/siswa/tugas', 'icon' => 'ri-task-line'],
-            // ]
+
+                [
+                    'CategoryLabel' => 'Materi Belajar',
+                ],
+                [
+                    'label' => 'Bahan Ajar',
+                    'url' => '/admin/penugasan-guru',
+                    'icon' => 'ri-info-card-fill',
+                    'sublabel' => false
+                ],
+                [
+                    'label' => 'Diskusi Materi',
+                    'url' => '/admin/rombel-siswa',
+                    'icon' => 'ri-group-3-fill',
+                    'sublabel' => false
+                ],
+                [
+                    'label' => 'Akses Perencanaan',
+                    'url' => '/admin/kurikulum-rpp',
+                    'icon' => 'ri-book-read-fill',
+                    'sublabel' => false,
+                ],
+
+
+                [
+                    'CategoryLabel' => 'Evaluasi & Asesmen',
+                ],
+                [
+                    'label' => 'Bank Soal',
+                    'url' => '/admin/guru',
+                    'icon' => 'ri-user-2-fill',
+                    'sublabel' => false
+                ],
+                [
+                    'label' => 'Daftar Asesmen',
+                    'url' => '/admin/siswa',
+                    'icon' => 'ri-user-5-fill',
+                    'sublabel' => false
+                ],
+                [
+                    'label' => 'Monitoring Ujian',
+                    'url' => '/admin/kelas',
+                    'icon' => 'ri-home-6-fill',
+                    'sublabel' => false,
+                ],
+
+                [
+                    'CategoryLabel' => 'Penilaian',
+                ],
+                [
+                    'label' => 'Koreksi Manual',
+                    'url' => '/admin/rekap-data',
+                    'icon' => 'ri-file-3-fill',
+                    'sublabel' => false,
+                ],
+                [
+                    'label' => 'Daftar Nilai',
+                    'url' => '/admin/rekap-data',
+                    'icon' => 'ri-file-3-fill',
+                    'sublabel' => false,
+                ],
+            ],
+            // SISWA SIDEBAR
+            'Siswa' => [
+                [
+                    'CategoryLabel' => 'Main Menu',
+                ],
+                [
+                    'label' => 'Dashboard',
+                    'url' => '/admin/dashboard',
+                    'icon' => 'ri-dashboard-fill',
+                    'sublabel' => false,
+                ],
+
+
+                [
+                    'CategoryLabel' => 'Akademik',
+                ],
+                [
+                    'label' => 'Materi Pembelajaran',
+                    'url' => '/admin/penugasan-guru',
+                    'icon' => 'ri-info-card-fill',
+                    'sublabel' => false
+                ],
+                [
+                    'label' => 'Diskusi Saya',
+                    'url' => '/admin/rombel-siswa',
+                    'icon' => 'ri-group-3-fill',
+                    'sublabel' => false
+                ],
+
+
+                [
+                    'CategoryLabel' => 'Ujian & Tugas',
+                ],
+                [
+                    'label' => 'Daftar Ujian Aktif',
+                    'url' => '/admin/penugasan-guru',
+                    'icon' => 'ri-info-card-fill',
+                    'sublabel' => false
+                ],
+                [
+                    'label' => 'Riwayat Ujian',
+                    'url' => '/admin/rombel-siswa',
+                    'icon' => 'ri-group-3-fill',
+                    'sublabel' => false
+                ],
+
+                [
+                    'CategoryLabel' => 'Hasil Belajar',
+                ],
+                [
+                    'label' => 'Lihat Nilai',
+                    'url' => '/admin/penugasan-guru',
+                    'icon' => 'ri-info-card-fill',
+                    'sublabel' => false
+                ],
+
+            ],
         ];
     }
 }
