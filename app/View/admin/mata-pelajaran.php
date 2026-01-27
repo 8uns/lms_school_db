@@ -88,7 +88,7 @@
     </div>
 
     <!-- start modal form tambah-->
-    <div class="fixed inset-0 bg-black/50 z-50" x-show="modaladd">
+    <div class="fixed inset-0 bg-black/50 z-50" x-cloak x-show="modaladd">
         <form action="<?= base_url('/admin/mata-pelajaran') ?>" method="post">
             <div class="bg-white w-1/3 mx-auto mt-40 rounded-2xl p-10" @click.outside="modaladd = false">
                 <div class="flex justify-between">
@@ -118,7 +118,7 @@
 
 
     <!-- start modal form edit-->
-    <div class="fixed inset-0 bg-black/50 z-50" x-show="modaledit">
+    <div class="fixed inset-0 bg-black/50 z-50" x-cloak x-show="modaledit">
         <form :action="'<?= base_url('/admin/mata-pelajaran') ?>/' + subjects.id" method="post">
             <div class="bg-white w-1/3 mx-auto mt-40 rounded-2xl p-10" @click.outside="modaledit = false">
                 <div class="flex justify-between">
@@ -147,7 +147,7 @@
     <!-- end modal form edit -->
 
     <!-- start modal delete-->
-    <div class="fixed inset-0 bg-black/50 z-50" x-show="modaldel">
+    <div class="fixed inset-0 bg-black/50 z-50" x-cloak x-show="modaldel">
         <div class="bg-white w-1/3 mx-auto mt-40 rounded-2xl p-10" @click.outside="modaldel = false">
             <div class="flex justify-center text-center">
                 <h6 class="text-lg mb-5 text-center">

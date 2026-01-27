@@ -1,13 +1,13 @@
 <!-- menu bar start-->
 <div x-data="{ open: false }"
     @click.away="open = false"
-    class="py-2 px-6 bg-white flex items-center border-b border-gray-300 h-18 md:ml-72 sm:ml-0 z-50 relative">
-    <button type="button" class="text-lg text-gray-600">
+    class="py-2 px-6 bg-white flex items-center border-b border-gray-300 h-18 md:ml-72 sm:ml-0 z-50 relative fixed">
+    <button type="button" class="text-lg text-gray-600 cursor-pointer" @click="opensidebar = !opensidebar">
         <i class="ri-menu-line"></i>
     </button>
 
     <h6 class="flex items-center justify-center w-full">
-        <span class="text-sm font-bold ">LMS Asemen SMP N 1 Halbar</span>
+        <span class="text-sm font-bold ">LMS Asesmen SMP N 1 Halbar</span>
     </h6>
 
     <ul class="ml-auto flex items-center">
@@ -18,7 +18,7 @@
                 <i class="ri-search-2-line"></i>
             </button>
             <div
-                x-show="open === 'search'"
+                x-cloak x-show="open === 'search'"
                 class="absolute p-4 max-w-xs w-full right-3 top-19 bg-white rounded-md border border-gray-100 shadow shadow-black1/2">
                 <form action="" class="border-b border-b-gray-100">
                     <input type="text" placeholder="search..."
@@ -36,7 +36,7 @@
             </button>
 
             <div
-                x-show="open === 'notification'"
+                x-cloak x-show="open === 'notification'"
                 class="absolute p-4 max-w-xs w-full right-3 top-19 bg-white rounded-md border border-gray-100 shadow shadow-black1/2">
                 <h6 class="text-gray-600 font-bold text-sm px-4 py-2">Notifikasi</h6>
                 <ul>
@@ -81,13 +81,13 @@
             </button>
 
             <div
-                x-show="open === 'profile'"
+                x-cloak x-show="open === 'profile'"
                 class="absolute p-4 max-w-xs w-full right-3 top-19 bg-white rounded-md shadow shadow-black1/2">
                 <h5 class="text-gray-500 font-bold text-sm"><?= $full_name ?></h5>
                 <h6 class="text-gray-400 text-sm"><?= $role ?></h6>
 
                 <ul>
-                    <lri-account-circle-filli class="">
+                    <li class="">
                         <a href="#"
                             class="text-sm flex items-center hover:bg-gray-300 hover:text-gray-800 rounded py-2 px-4 my-2">
                             <i class="ri-account-circle-line mr-3"></i>

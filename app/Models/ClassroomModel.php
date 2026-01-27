@@ -18,7 +18,7 @@ class ClassroomModel
     // get data
     public function getClass()
     {
-        $stmt = $this->db->prepare("SELECT * FROM classrooms WHERE is_deleted = FALSE");
+        $stmt = $this->db->prepare("SELECT * FROM classrooms WHERE is_deleted = FALSE ORDER BY id DESC");
         $stmt->execute();
         return $stmt->fetchAll();
     }

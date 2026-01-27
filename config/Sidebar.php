@@ -9,6 +9,9 @@ class Sidebar
         return [
             'SuperAdmin' => [
                 [
+                    'CategoryLabel' => 'Main Menu',
+                ],
+                [
                     'label' => 'Dashboard',
                     'url' => '/administrator/dashboard',
                     'icon' => 'ri-dashboard-fill',
@@ -33,25 +36,47 @@ class Sidebar
                         // ],
                     ]
                 ],
-                // [
-                //     'label' => 'Kelas',
-                //     'url' => '/administrator/dashboard',
-                //     'icon' => 'ri-home-office-fill',
-                //     'sublabel' => false,
-                // ],
-                // [
-                //     'label' => 'Setting',
-                //     'url' => '/administrator/dashboard',
-                //     'icon' => 'ri-settings-4-fill',
-                //     'sublabel' => false,
-                // ],
             ],
             'Admin' => [
+
+
+
+                [
+                    'CategoryLabel' => 'Main Menu',
+                ],
                 [
                     'label' => 'Dashboard',
                     'url' => '/admin/dashboard',
                     'icon' => 'ri-dashboard-fill',
                     'sublabel' => false,
+                ],
+
+
+                [
+                    'CategoryLabel' => 'Manajemen Akademik',
+                ],
+                [
+                    'label' => 'Penugasan Guru',
+                    'url' => '/admin/penugasan-guru',
+                    'icon' => 'ri-info-card-fill',
+                    'sublabel' => false
+                ],
+                [
+                    'label' => 'Rombel Siswa',
+                    'url' => '/admin/rombel-siswa',
+                    'icon' => 'ri-group-3-fill',
+                    'sublabel' => false
+                ],
+                [
+                    'label' => 'Kurikulum/RPP',
+                    'url' => '/admin/kurikulum-rpp',
+                    'icon' => 'ri-book-read-fill',
+                    'sublabel' => false,
+                ],
+
+
+                [
+                    'CategoryLabel' => 'Master Data',
                 ],
                 [
                     'label' => 'Akun Guru',
@@ -77,14 +102,25 @@ class Sidebar
                     'icon' => 'ri-calendar-fill',
                     'sublabel' => false,
                 ],
-                 [
+                [
                     'label' => 'Mata Pelajaran',
                     'url' => '/admin/mata-pelajaran',
                     'icon' => 'ri-book-2-fill',
                     'sublabel' => false,
                 ],
+
+                [
+                    'CategoryLabel' => 'Laporan',
+                ],
+                [
+                    'label' => 'Rekapitulasi Data',
+                    'url' => '/admin/rekap-data',
+                    'icon' => 'ri-file-3-fill',
+                    'sublabel' => false,
+                ],
+
             ],
-            
+
             // 'Guru' => [
             //     ['label' => 'Dashboard', 'url' => '/guru/dashboard', 'icon' => 'ri-dashboard-line'],
             //     ['label' => 'Materi', 'url' => '/guru/materi', 'icon' => 'ri-book-line'],

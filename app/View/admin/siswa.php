@@ -89,7 +89,7 @@
     </div>
 
     <!-- start modal form tambah user -->
-    <div class="fixed h-screen w-screen bg-black/50 left-0 top-0 z-50" x-show="modaladd">
+    <div class="fixed h-screen w-screen bg-black/50 left-0 top-0 z-50" x-cloak x-show="modaladd">
         <form action="<?= base_url('/admin/siswa') ?>" method="post">
             <div class="bg-white w-1/3 mx-auto mt-40 rounded-2xl p-10" @click.away="modaladd = false">
                 <div class="flex justify-between">
@@ -102,13 +102,13 @@
                 </div>
 
                 <div class="mb-8 relative">
-                    <label for="" class="text-gray-600 text-sm">Username</label>
-                    <input required name="username" type="text" class="border text-gray-700 border-gray-400 bg-white w-full rounded-2xl py-3 px-10 text-sm" placeholder="username ...">
+                    <label for="" class="text-gray-600 text-sm">Nama Lengkap</label>
+                    <input required name="full_name" type="text" class="border text-gray-700 border-gray-400 bg-white w-full rounded-2xl py-3 px-10 text-sm" placeholder="nama lengkap ...">
                 </div>
 
                 <div class="mb-8 relative">
-                    <label for="" class="text-gray-600 text-sm">Nama Lengkap</label>
-                    <input required name="full_name" type="text" class="border text-gray-700 border-gray-400 bg-white w-full rounded-2xl py-3 px-10 text-sm" placeholder="nama lengkap ...">
+                    <label for="" class="text-gray-600 text-sm">Username</label>
+                    <input required name="username" type="text" class="border text-gray-700 border-gray-400 bg-white w-full rounded-2xl py-3 px-10 text-sm" placeholder="username ...">
                 </div>
 
                 <div class="mb-15 relative">
@@ -128,7 +128,7 @@
 
 
     <!-- start modal form edit user -->
-    <div class="fixed h-screen w-screen bg-black/50 left-0 top-0 z-50" x-show="modaledit">
+    <div class="fixed h-screen w-screen bg-black/50 left-0 top-0 z-50" x-cloak x-show="modaledit">
         <form :action="'<?= base_url('/admin/siswa') ?>/' + userdata.user_id" method="post">
             <div class="bg-white w-1/3 mx-auto mt-40 rounded-2xl p-10" @click.away="modaledit = false">
                 <div class="flex justify-between">
@@ -141,13 +141,13 @@
                 </div>
 
                 <div class="mb-8 relative">
-                    <label for="" class="text-gray-600 text-sm">Username</label>
-                    <input x-model="userdata.username" required name="username" type="text" class="border text-gray-700 border-gray-400 bg-white w-full rounded-2xl py-3 px-10 text-sm" placeholder="username ...">
+                    <label for="" class="text-gray-600 text-sm">Nama Lengkap</label>
+                    <input x-model="userdata.full_name" required name="full_name" type="text" class="border text-gray-700 border-gray-400 bg-white w-full rounded-2xl py-3 px-10 text-sm" placeholder="nama lengkap ...">
                 </div>
 
                 <div class="mb-8 relative">
-                    <label for="" class="text-gray-600 text-sm">Nama Lengkap</label>
-                    <input x-model="userdata.full_name" required name="full_name" type="text" class="border text-gray-700 border-gray-400 bg-white w-full rounded-2xl py-3 px-10 text-sm" placeholder="nama lengkap ...">
+                    <label for="" class="text-gray-600 text-sm">Username</label>
+                    <input x-model="userdata.username" required name="username" type="text" class="border text-gray-700 border-gray-400 bg-white w-full rounded-2xl py-3 px-10 text-sm" placeholder="username ...">
                 </div>
 
                 <div class="mb-2 relative">
@@ -162,7 +162,7 @@
     <!-- end modal form edit user-->
 
     <!-- start modal delete user -->
-    <div class="fixed h-screen w-screen bg-black/50 left-0 top-0 z-50" x-show="modaldel">
+    <div class="fixed h-screen w-screen bg-black/50 left-0 top-0 z-50" x-cloak x-show="modaldel">
         <div class="bg-white w-1/3 mx-auto mt-40 rounded-2xl p-10" @click.away="modaldel = false">
             <div class="flex justify-center text-center">
                 <h6 class="text-lg mb-5 text-center">

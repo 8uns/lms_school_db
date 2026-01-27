@@ -10,7 +10,12 @@
 
     <script type="module" src="/assets/js/alpine.min.js"></script>
 
+    <style>
+        [x-cloak] {
+            display: none !important;
+        }
+    </style>
     <title>LMS App</title>
 </head>
 
-<body>
+<body x-data="{ opensidebar: true }">
