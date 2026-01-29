@@ -29,7 +29,6 @@ class ClassroomModel
         return $stmt->fetch();
     }
 
-
     // create data
     public function create(array $data)
     {
@@ -62,7 +61,7 @@ class ClassroomModel
     public function delete(int $id)
     {
         try {
-            $stmt = $this->db->prepare("UPDATE classrooms SET is_deleted = TRUE WHERE id = ?");
+            $stmt = $this->db->prepare("UPDATE classrooms SET is_deleted = TRUE, is_active = FALSE WHERE id = ?");
             return $stmt->execute([$id]);
         } catch (Exception $e) {
             return false;

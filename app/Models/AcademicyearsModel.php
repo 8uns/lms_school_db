@@ -28,6 +28,12 @@ class AcademicyearsModel
         $stmt->execute([$id]);
         return $stmt->fetch();
     }
+    public function getActiveAcademicYears()
+    {
+        $stmt = $this->db->prepare("SELECT * FROM academic_years WHERE is_deleted = 0 AND is_active = 1 ORDER BY id DESC");
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
 
 
     // create data
