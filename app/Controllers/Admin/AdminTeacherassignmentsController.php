@@ -37,9 +37,10 @@ class AdminTeacherassignmentsController extends Controller
         $data['sidebar'] = Sidebar::get()[$_SESSION['role']];
         $data['teacher_assignments'] = $this->teacherassignmentsModel->getTeacherAssignmentsByAcademicyear($academic_year_id);
         $data['classrooms'] = $this->classroomModel->getClass();
-        $data['academicyears'] = $this->academicYearsModel->getAcademicYears();
+        $data['academic_years'] = $this->academicYearsModel->getAcademicYears();
         $data['subject'] = $this->subjectModel->getSubjects();
         $data['guru'] = $this->userModel->getGuru();
+        $data['academic_year_id'] =  $academic_year_id;
 
         $this->renderDashboard('admin/penugasan-guru', $data);
     }

@@ -32,7 +32,7 @@ class AdminDashboardController extends Controller
         $data['full_name'] = Session::get('full_name');
         $data['role'] = Session::get('role');
         $data['sidebar'] = Sidebar::get()[$_SESSION['role']];
-        $this->renderDashboard('admin/dashboard', $data);
+        $this->renderDashboard('/layouts/comingsoon', $data);
     }
 
     

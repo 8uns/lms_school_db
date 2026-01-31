@@ -25,7 +25,15 @@ class AuthController extends Controller
     public function login()
     {
         if (Session::get('user_id')) {
-            $this->redirect('/');
+            if (Session::get('role') == 'SuperAdmin') {
+                $this->redirect('/administrator/dashboard');
+            } elseif (Session::get('role') == 'Admin') {
+                $this->redirect('/admin/dashboard');
+            } elseif (Session::get('role') == 'Guru') {
+                $this->redirect('/guru/dashboard');
+            } elseif (Session::get('role') == 'Siswa') {
+                $this->redirect('/siswa/dashboard');
+            } 
         }
         $this->view('layouts/header');
         if ($this->data['error_message'] = Session::getFlash('error_message')) {

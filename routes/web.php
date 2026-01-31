@@ -13,8 +13,10 @@ use App\Controllers\Admin\AdminGuruController;
 use App\Controllers\Admin\AdminSiswaController;
 use App\Controllers\Admin\AdminClassroomController;
 use App\Controllers\Admin\AdminAcademicyearsController;
+use App\Controllers\Admin\AdminStudentclassesController;
 use App\Controllers\Admin\AdminSubjectController;
 use App\Controllers\Admin\AdminTeacherassignmentsController;
+use App\Controllers\Admin\ComingSoonController;
 
 // Contoh Penggunaan dengan banyak data
 // Router::add(
@@ -81,6 +83,18 @@ Router::add('GET', '/admin/penugasan-guru/([0-9]*)', AdminTeacherassignmentsCont
 Router::add('POST', '/admin/penugasan-guru', AdminTeacherassignmentsController::class, 'createPenugasanGuru', [AuthMiddleware::class,  RoleMiddleware::class . ':Admin']); // create penugasan guru
 Router::add('POST', '/admin/penugasan-guru/([0-9]*)', AdminTeacherassignmentsController::class, 'updatePenugasanGuru', [AuthMiddleware::class,  RoleMiddleware::class . ':Admin']); // update penugasan guru
 Router::add('GET', '/admin/penugasan-guru/del/([0-9]*)', AdminTeacherassignmentsController::class, 'deletePenugasanGuru', [AuthMiddleware::class,  RoleMiddleware::class . ':Admin']); // delete penugasan guru
+
+// rombel siswa
+Router::add('GET', '/admin/rombel-siswa', AdminStudentclassesController::class, 'index', [AuthMiddleware::class,  RoleMiddleware::class . ':Admin']); // menu manage rombel siswa
+Router::add('GET', '/admin/rombel-siswa/([0-9]*)', AdminStudentclassesController::class, 'index', [AuthMiddleware::class,  RoleMiddleware::class . ':Admin']); // menu manage rombel siswa
+Router::add('POST', '/admin/rombel-siswa', AdminStudentclassesController::class, 'createPenugasanGuru', [AuthMiddleware::class,  RoleMiddleware::class . ':Admin']); // create rombel siswa
+Router::add('POST', '/admin/rombel-siswa/([0-9]*)', AdminStudentclassesController::class, 'updatePenugasanGuru', [AuthMiddleware::class,  RoleMiddleware::class . ':Admin']); // update rombel siswa
+Router::add('GET', '/admin/rombel-siswa/del/([0-9]*)', AdminStudentclassesController::class, 'deletePenugasanGuru', [AuthMiddleware::class,  RoleMiddleware::class . ':Admin']); // delete rombel siswa
+
+// kurikulum
+Router::add('GET', '/admin/kurikulum-rpp', ComingSoonController::class, 'kurikulum', [AuthMiddleware::class,  RoleMiddleware::class . ':Admin']); // menu manage 
+Router::add('GET', '/admin/rekap-data', ComingSoonController::class, 'rekap', [AuthMiddleware::class,  RoleMiddleware::class . ':Admin']); // menu manage 
+
 
 #####// Protected Routes (Butuh Login)
 Router::add('GET', '/', AuthController::class, 'index', [AuthMiddleware::class, RoleMiddleware::class . ':Admin,SuperAdmin,Guru,Siswa']);

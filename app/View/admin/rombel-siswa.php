@@ -46,37 +46,33 @@
                                 <thead>
                                     <tr class="h-20">
                                         <th class="">No</th>
-                                        <th class="">Nama Guru</th>
-                                        <th class="">Mata Pelajaran</th>
                                         <th class="">Kelas</th>
-                                        <th class="">Tahun Ajaran/Semester</th>
+                                        <th class="">Jumlah Siswa</th>
                                         <th class="">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php $no = 1; ?>
-                                    <?php foreach ($data['teacher_assignments'] as $assigment): ?>
+                                    <?php foreach ($data['studentclasses'] as $val): ?>
                                         <tr class="h-15 border-b border-t border-gray-300">
 
                                             <td class="px-4 py-2"><?= $no++; ?></td>
-                                            <td class="px-4 py-2"><?= $assigment['teacher_name']; ?></td>
-                                            <td class="px-4 py-2"><?= $assigment['subject_name']; ?></td>
-                                            <td class="px-4 py-2"><?= $assigment['class_name']; ?></td>
-                                            <td class="px-4 py-2"><?= $assigment['period_name']; ?></td>
+                                            <td class="px-4 py-2"><?= $val['class_name']; ?></td>
+                                            <td class="px-4 py-2"><?= $val['total_students']; ?></td>
                                             <td class="px-4 py-2 flex justify-center gap-2">
                                                 <div class="w-auto relative">
                                                     <button
                                                         @click="
                                                                 data = {
-                                                                    assignment_id : '<?= $assigment['assignment_id'] ?>', 
-                                                                    teacher_id : '<?= $assigment['teacher_id'] ?>', 
-                                                                    subject_id : '<?= $assigment['subject_id'] ?>', 
-                                                                    classroom_id : '<?= $assigment['classroom_id'] ?>', 
-                                                                    academic_year_id : '<?= $assigment['academic_year_id'] ?>', 
-                                                                    teacher_name : '<?= $assigment['teacher_name']; ?>', 
-                                                                    subject_name : '<?= $assigment['subject_name']; ?>', 
-                                                                    class_name : '<?= $assigment['class_name']; ?>', 
-                                                                    period_name : '<?= $assigment['period_name']; ?>'
+                                                                    assignment_id : '<?= $val['assignment_id'] ?>', 
+                                                                    teacher_id : '<?= $val['teacher_id'] ?>', 
+                                                                    subject_id : '<?= $val['subject_id'] ?>', 
+                                                                    classroom_id : '<?= $val['classroom_id'] ?>', 
+                                                                    academic_year_id : '<?= $val['academic_year_id'] ?>', 
+                                                                    teacher_name : '<?= $val['teacher_name']; ?>', 
+                                                                    subject_name : '<?= $val['subject_name']; ?>', 
+                                                                    class_name : '<?= $val['class_name']; ?>', 
+                                                                    period_name : '<?= $val['period_name']; ?>'
                                                                 }; 
                                                     modaledit = !modaledit
                                                     "
@@ -89,15 +85,15 @@
                                                     <button
                                                         @click="
                                                                 data = {
-                                                                    assignment_id : '<?= $assigment['assignment_id'] ?>', 
-                                                                    teacher_id : '<?= $assigment['teacher_id'] ?>', 
-                                                                    subject_id : '<?= $assigment['subject_id'] ?>', 
-                                                                    classroom_id : '<?= $assigment['classroom_id'] ?>', 
-                                                                    academic_year_id : '<?= $assigment['academic_year_id'] ?>', 
-                                                                    teacher_name : '<?= $assigment['teacher_name']; ?>', 
-                                                                    subject_name : '<?= $assigment['subject_name']; ?>', 
-                                                                    class_name : '<?= $assigment['class_name']; ?>', 
-                                                                    period_name : '<?= $assigment['period_name']; ?>'
+                                                                    assignment_id : '<?= $val['assignment_id'] ?>', 
+                                                                    teacher_id : '<?= $val['teacher_id'] ?>', 
+                                                                    subject_id : '<?= $val['subject_id'] ?>', 
+                                                                    classroom_id : '<?= $val['classroom_id'] ?>', 
+                                                                    academic_year_id : '<?= $val['academic_year_id'] ?>', 
+                                                                    teacher_name : '<?= $val['teacher_name']; ?>', 
+                                                                    subject_name : '<?= $val['subject_name']; ?>', 
+                                                                    class_name : '<?= $val['class_name']; ?>', 
+                                                                    period_name : '<?= $val['period_name']; ?>'
                                                                 }; 
                                                     modaldel = !modaldel
                                                     "

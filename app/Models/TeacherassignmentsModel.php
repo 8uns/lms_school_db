@@ -74,7 +74,7 @@ class TeacherassignmentsModel
             $stmt->execute([$id]);
             return $stmt->fetchAll();
         } else {
-            $this->getTeacherAssignments();
+            return $this->getTeacherAssignments();
         }
     }
 
@@ -89,6 +89,9 @@ class TeacherassignmentsModel
     public function create(array $data)
     {
         try {
+            if ($this->isDuplicate($data)) {
+                return false;
+            }
             $stmt = $this->db->prepare("INSERT INTO teacher_assignments 
                 (teacher_id, subject_id, classroom_id, academic_year_id) 
                 VALUES (?, ?, ?, ?)");
@@ -104,9 +107,7 @@ class TeacherassignmentsModel
         }
     }
 
-    /**
-     * Update Data
-     */
+
     public function update(int $id, array $data)
     {
         try {
@@ -129,15 +130,9 @@ class TeacherassignmentsModel
         }
     }
 
-    /**
-     * Delete Data
-     * Karena tabel ini adalah pivot/relasi, disarankan menggunakan DELETE permanen.
-     * Jika tetap ingin soft delete, Anda harus menambahkan kolom is_deleted di tabel tersebut.
-     */
     public function delete(int $id)
     {
         try {
-            // Hard Delete (Disarankan untuk tabel penugasan/relasi)
             $stmt = $this->db->prepare("DELETE FROM teacher_assignments WHERE id = ?");
             return $stmt->execute([$id]);
         } catch (Exception $e) {
@@ -149,11 +144,11 @@ class TeacherassignmentsModel
      * Helper: Mengecek apakah guru sudah ditugaskan di mapel & kelas yang sama pada tahun ajaran tersebut
      * Mencegah duplikasi data
      */
-    public function isDuplicate($teacher_id, $subject_id, $classroom_id, $academic_year_id)
+    public function isDuplicate($data)
     {
         $stmt = $this->db->prepare("SELECT id FROM teacher_assignments 
             WHERE teacher_id = ? AND subject_id = ? AND classroom_id = ? AND academic_year_id = ?");
-        $stmt->execute([$teacher_id, $subject_id, $classroom_id, $academic_year_id]);
+        $stmt->execute([$data['teacher_id'], $data['subject_id'], $data['classroom_id'], $data['academic_year_id']]);
         return $stmt->fetch() ? true : false;
     }
 }
