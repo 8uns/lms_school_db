@@ -1,8 +1,8 @@
 # 📚 Learning Management System (LMS) App
 
 **###English**
+
 **
-# 📚 Learning Management System (LMS) App
 
 A web-based **LMS** application designed to manage digital teaching and learning activities. This system supports academic data management, learning material distribution, and online assessments with a strict user role-based access control.
 
@@ -98,8 +98,11 @@ The system features an interconnected database structure to support academic his
 
 
 
+
 **###Indonesian**
+
 **
+
 Aplikasi **LMS** berbasis web yang dirancang untuk mengelola kegiatan belajar mengajar secara digital. Sistem ini mendukung pengelolaan data akademik, distribusi bahan ajar, hingga pelaksanaan asesmen (ujian) online dengan sistem peran pengguna yang ketat.
 
 ---
