@@ -8,5 +8,4 @@ vendor/
 storage/
 database/seeders/
 tests/
-public/assets/tailwind/
 public/assets/remixicon/
