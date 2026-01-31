@@ -8,5 +8,5 @@ vendor/
 storage/
 database/seeders/
 tests/
-public/assets/input.css
-public/assets/remixicon
+public/assets/tailwind/
+public/assets/remixicon/
