@@ -149,6 +149,8 @@
     <!-- start modal delete-->
     <div class="fixed inset-0 bg-black/50 z-50" x-cloak x-show="modaldel">
         <div class="bg-white w-1/3 mx-auto mt-40 rounded-2xl p-10" @click.outside="modaldel = false">
+
+
             <div class="flex justify-center text-center">
                 <h6 class="text-lg mb-5 text-center">
                     Hapus Akun

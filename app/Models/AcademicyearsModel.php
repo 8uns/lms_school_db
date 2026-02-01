@@ -30,9 +30,9 @@ class AcademicyearsModel
     }
     public function getActiveAcademicYears()
     {
-        $stmt = $this->db->prepare("SELECT * FROM academic_years WHERE is_deleted = 0 AND is_active = 1 ORDER BY id DESC");
+        $stmt = $this->db->prepare("SELECT * FROM academic_years WHERE is_deleted = 0 AND is_active = 1 ORDER BY id DESC LIMIT 0,1");
         $stmt->execute();
-        return $stmt->fetchAll();
+        return $stmt->fetch();
     }
 
 

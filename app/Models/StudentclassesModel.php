@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use App\Core\Database;
-use Exception;
 
 class StudentclassesModel
 {
@@ -14,70 +13,18 @@ class StudentclassesModel
         $this->db = Database::getConnection();
     }
    
-    public function getStudentClasses()
+    public function getClasgetStudentCountPerClasss($academic_year_id = NULL)
     {
         $stmt = $this->db->prepare("SELECT 
-                                        c.id AS classroom_id,
-                                        ay.id AS academic_year_id,
-                                        c.class_name,
-                                        CONCAT(ay.year_name, ' (', ay.semester, ')') AS period_name,
-                                        ay.is_active,
-                                        COUNT(sc.student_id) AS total_students
-                                    FROM student_classes sc
-                                    JOIN classrooms c ON sc.classroom_id = c.id
-                                    JOIN academic_years ay ON sc.academic_year_id = ay.id
-                                    WHERE 
-                                        ay.is_active = TRUE 
-                                        AND ay.is_deleted = FALSE
-                                        AND c.is_deleted = FALSE
-                                    GROUP BY c.id, ay.id, c.class_name, ay.year_name, ay.semester, ay.is_active
-                                    ORDER BY c.class_name ASC;");
-        $stmt->execute();
-        return $stmt->fetchAll();
-    }
-
-    public function getClassroomsStuend(){
-         $stmt = $this->db->prepare("SELECT 
-                                        c.id AS classroom_id,
-                                        c.class_name,
-                                        COUNT(sc.student_id) AS total_students
-                                    FROM classrooms c
-                                    -- LEFT JOIN memastikan kelas tidak hilang meskipun tidak ada kecocokan di student_classes
-                                    LEFT JOIN student_classes sc ON c.id = sc.classroom_id
+                                        cr.class_name, 
+                                        COUNT(sc.student_id) AS total_students 
+                                    FROM classrooms cr
+                                    LEFT JOIN student_classes sc ON cr.id = sc.classroom_id
                                     LEFT JOIN academic_years ay ON sc.academic_year_id = ay.id
-                                    WHERE 
-                                        c.is_deleted = FALSE
-                                    GROUP BY 
-                                        c.id, c.class_name
-                                    ORDER BY 
-                                        c.class_name ASC;");
-        $stmt->execute();
+                                    WHERE ay.id IS NULL OR ay.id = ?
+                                    GROUP BY cr.id, cr.class_name;");
+        $stmt->execute([$academic_year_id]);
         return $stmt->fetchAll();
-    }
-    public function getStudentClassesByAcademicyear($id = 0)
-    {
-        if ($id) {
-            $stmt = $this->db->prepare("SELECT 
-                                        c.id AS classroom_id,
-                                        ay.id AS academic_year_id,
-                                        c.class_name,
-                                        CONCAT(ay.year_name, ' (', ay.semester, ')') AS period_name,
-                                        ay.is_active,
-                                        COUNT(sc.student_id) AS total_students
-                                    FROM student_classes sc
-                                    JOIN classrooms c ON sc.classroom_id = c.id
-                                    JOIN academic_years ay ON sc.academic_year_id = ay.id
-                                    WHERE 
-                                        ay.id = ? 
-                                        AND ay.is_deleted = FALSE
-                                        AND c.is_deleted = FALSE
-                                    GROUP BY c.id, ay.id, c.class_name, ay.year_name, ay.semester, ay.is_active
-                                    ORDER BY c.class_name ASC;");
-            $stmt->execute([$id]);
-            return $stmt->fetchAll();
-        } else {
-            return $this->getStudentClasses();
-        }
     }
 
     public function getById(int $id)

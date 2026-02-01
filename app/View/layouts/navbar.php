@@ -128,7 +128,15 @@
             <i class="ri-arrow-right-s-line"></i>
         </li>
         <li class="mr-2">
-            <a href="#" class="text-gray-400"><?= $subpage == false ? $page : $subpage ?></a>
+            <a href="#" class="<?= $subpage == true ? 'text-gray-400' : 'text-gray-600' ?>" ><?= $page ?></a>
         </li>
+        <?php if ($subpage): ?>
+            <li class="text-gray-600 mr-2">
+                <i class="ri-arrow-right-s-line"></i>
+            </li>
+            <li class="mr-2">
+                <a href="#" class="text-gray-600"><?= $subpage ?></a>
+            </li>
+        <?php endif; ?>
 </div>
 <!-- title page end -->
