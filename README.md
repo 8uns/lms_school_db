@@ -50,7 +50,7 @@ The system features an interconnected database structure to support academic his
 - [x] **Authentication**: Login, Register (Role Selection), Session Management.
 - [x] **Authorization**: Route protection middleware & dedicated dashboards for each role.
 - [x] **UX**: Flash messages & Role-based redirection.
-- [x] **Security**: XSS Protection, Password Hashing, Soft Delete, Access Logging.
+- [ ] **Security**: XSS Protection, Password Hashing, Soft Delete, Access Logging.
 
 ### 2. Role-Based Features
 #### **Super Admin**
@@ -153,7 +153,7 @@ Sistem ini memiliki struktur database yang saling berelasi untuk mendukung riway
 - [x] **Authentication**: Login, Register (Role Selection), Session Management.
 - [x] **Authorization**: Middleware proteksi route & Dashboard terpisah tiap role.
 - [x] **UX**: Flash messages & Role-based redirect.
-- [x] **Security**: XSS Protection, Password Hashing, Soft Delete, Access Logging.
+- [ ] **Security**: XSS Protection, Password Hashing, Soft Delete, Access Logging.
 
 ### 2. Fitur Berdasarkan Peran
 #### **Super Admin**
