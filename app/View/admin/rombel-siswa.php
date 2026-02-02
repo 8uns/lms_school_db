@@ -31,12 +31,12 @@
                                 <?php endforeach; ?>
                             </select>
                         </h6>
-                        <div class="relative">
+                        <!-- <div class="relative">
                             <button @click="modaladd = !modaladd" type="button" class="cursor-pointer bg-gradient-to-r from-blue-600 to-indigo-500 w-full rounded-2xl text-white py-3 px-5 hover:from-blue-700 hover:to-indigo-600 transition-colors">
-                                <i class="ri-add-large-line"></i>
-                                Tambahkan Rombel
+                                <i class="ri-settings-line"></i>
+                                Kelola Rombel
                             </button>
-                        </div>
+                        </div> -->
                     </div>
 
                     <div class="px-10 py-5 ">
@@ -59,7 +59,7 @@
                                             <td class="px-4 py-2"><?= $no++; ?></td>
                                             <td class="px-4 py-2"><?= $val['class_name']; ?></td>
                                             <td class="px-4 py-2"><?= $val['total_students']; ?></td>
-                                            <td class="px-4 py-2 flex justify-center gap-2">
+                                            <!-- <td class="px-4 py-2 flex justify-center gap-2">
                                                 <div class="w-auto relative">
                                                     <button
                                                         @click="
@@ -81,6 +81,11 @@
                                                     </button>
                                                 </div>
 
+                                            </td> -->
+                                            <td>
+                                                <a href="/admin/rombel-siswa/class/<?= $val['classroom_id'] ?>" class="block hover:text-blue-700 py-5 font-bold text-sm">
+                                                    <i class="ri-group-3-fill"></i>
+                                                </a>
                                             </td>
                                         </tr>
 

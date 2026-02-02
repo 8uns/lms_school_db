@@ -16,6 +16,7 @@ class StudentclassesModel
     public function getClasgetStudentCountPerClasss($academic_year_id = NULL)
     {
         $stmt = $this->db->prepare("SELECT 
+                                        cr.id classroom_id, 
                                         cr.class_name, 
                                         COUNT(sc.student_id) AS total_students 
                                     FROM classrooms cr

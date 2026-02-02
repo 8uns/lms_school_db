@@ -48,29 +48,30 @@ class AdminStudentclassesController extends Controller
     public function studentByClass($classroom_id, $academic_year_id = null): void
     {
         $data['page'] = 'Rombel Siswa';
-        $data['subpage'] = 'Menambahkan Siswa';
+        $data['classrooms'] = $this->classroomModel->getById($classroom_id);
+        $data['subpage'] = 'Siswa Kelas '.$data['classrooms']['class_name'];
         $data['full_name'] = Session::get('full_name');
         $data['role'] = $_SESSION['role'];
         $data['sidebar'] = Sidebar::get()[$_SESSION['role']];
-        $data['classrooms'] = $this->classroomModel->getById($classroom_id);
-        $data['classroom_id'] = $classroom_id;
         $data['academic_year_id'] = $this->studentclassesService->getAcademicyearId($academic_year_id);
         $data['academic_years'] = $this->academicYearsModel->getAcademicYears();
         $data['siswa'] = $this->userModel->getSiswa();
 
-        $this->renderDashboard('admin/rombel-siswa-tambah', $data);
+        $this->renderDashboard('admin/rombel-siswa-kelas', $data);
     }
 
-    // public function createPenugasanGuru(): void
-    // {
-    //     if ($this->studentclassesModel->create($_POST)) {
-    //         // Berhasil membuat penugasan guru
-    //         $this->redirect('/admin/penugasan-guru');
-    //     } else {
-    //         // Gagal membuat penugasan guru
-    //         $this->redirect('/admin/penugasan-guru');
-    //     }
-    // }
+    public function createPenugasanGuru(): void
+    {
+        // if ($this->studentclassesModel->create($_POST)) {
+        //     // Berhasil membuat penugasan guru
+        //     $this->redirect('/admin/penugasan-guru');
+        // } else {
+        //     // Gagal membuat penugasan guru
+        //     $this->redirect('/admin/penugasan-guru');
+        // }
+
+        var_dump($_POST);
+    }
 
     // public function updatePenugasanGuru($id): void
     // {
