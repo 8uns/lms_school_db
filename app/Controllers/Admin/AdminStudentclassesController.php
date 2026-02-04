@@ -7,7 +7,6 @@ use App\Core\Session;
 use App\Models\StudentclassesModel;
 use App\Models\ClassroomModel;
 use App\Models\AcademicyearsModel;
-use App\Models\UserModel;
 use App\Services\StudentclassesService;
 use Config\Sidebar;
 
@@ -16,7 +15,6 @@ class AdminStudentclassesController extends Controller
     private StudentclassesModel $studentclassesModel;
     private ClassroomModel $classroomModel;
     private AcademicyearsModel $academicYearsModel;
-    private UserModel $userModel;
     private StudentclassesService $studentclassesService;
 
     public function __construct()
@@ -25,7 +23,6 @@ class AdminStudentclassesController extends Controller
         $this->studentclassesModel = new StudentclassesModel();
         $this->classroomModel = new ClassroomModel();
         $this->academicYearsModel = new AcademicyearsModel();
-        $this->userModel = new UserModel();
         $this->studentclassesService = new StudentclassesService();
     }
     public function index($academic_year_id = NULL): void
@@ -35,7 +32,7 @@ class AdminStudentclassesController extends Controller
         $data['full_name'] = Session::get('full_name');
         $data['role'] = $_SESSION['role'];
         $data['sidebar'] = Sidebar::get()[$_SESSION['role']];
-        $data['studentclasses'] = $this->studentclassesModel->getClasgetStudentCountPerClasss($academic_year_id);
+        $data['studentclasses'] = $this->studentclassesService->getStudentCountPerClasss($academic_year_id);
         $data['classrooms'] = $this->classroomModel->getClass();
         $data['academic_years'] = $this->academicYearsModel->getAcademicYears();
         $data['academic_year_id'] = $this->studentclassesService->getAcademicyearId($academic_year_id);
@@ -48,7 +45,7 @@ class AdminStudentclassesController extends Controller
     {
         $data['page'] = 'Rombel Siswa';
         $data['classrooms'] = $this->classroomModel->getById($classroom_id);
-        $data['subpage'] = 'Siswa Kelas '.$data['classrooms']['class_name'];
+        $data['subpage'] = 'Siswa Kelas ' . $data['classrooms']['class_name'];
         $data['full_name'] = Session::get('full_name');
         $data['role'] = $_SESSION['role'];
         $data['sidebar'] = Sidebar::get()[$_SESSION['role']];
@@ -61,17 +58,17 @@ class AdminStudentclassesController extends Controller
         $this->renderDashboard('admin/rombel-siswa-kelas', $data);
     }
 
-    public function createPenugasanGuru(): void
+    public function createRombelSiswa(): void
     {
-        // if ($this->studentclassesModel->create($_POST)) {
-        //     // Berhasil membuat penugasan guru
-        //     $this->redirect('/admin/penugasan-guru');
-        // } else {
-        //     // Gagal membuat penugasan guru
-        //     $this->redirect('/admin/penugasan-guru');
-        // }
+        if ($this->studentclassesService->create($_POST)) {
+            // Berhasil membuat penugasan guru
+            $this->redirect('/admin/rombel-siswa/class/' . $_POST['classroom_id'] . '/ay/' . $_POST['academic_year_id']);
+        } else {
+            // Gagal membuat penugasan guru
+            $this->redirect('/admin/rombel-siswa/class/' . $_POST['classroom_id'] . '/ay/' . $_POST['academic_year_id']);
+        }
 
-        var_dump($_POST);
+        print_r($_POST);
     }
 
     // public function updatePenugasanGuru($id): void
@@ -85,14 +82,15 @@ class AdminStudentclassesController extends Controller
     //     }
     // }
 
-    // public function deletePenugasanGuru($id): void
-    // {
-    //     if ($this->studentclassesModel->delete($id)) {
-    //         // Berhasil menghapus penugasan guru
-    //         $this->redirect('/admin/penugasan-guru');
-    //     } else {
-    //         // Gagal menghapus penugasan guru
-    //         $this->redirect('/admin/penugasan-guru');
-    //     }
-    // }
+    public function deleteRombelSiswa($id, $classroom_id, $academic_year_id): void
+    {
+        if ($this->studentclassesModel->delete($id)) {
+            // Berhasil menghapus penugasan guru
+            $this->redirect('/admin/rombel-siswa/class/' . $classroom_id . '/ay/' . $academic_year_id);
+        } else {
+            // Gagal membuat penugasan guru
+            $this->redirect('/admin/rombel-siswa/class/' . $classroom_id . '/ay/' . $academic_year_id);
+        }
+
+    }
 }

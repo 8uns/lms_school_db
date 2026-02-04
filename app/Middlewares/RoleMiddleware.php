@@ -22,7 +22,7 @@ class RoleMiddleware implements Middleware
 
         if (!in_array($userRole, $this->allowedRoles)) {
             http_response_code(403);
-            View::render('errors/403');
+            View::renderPage('errors/403');
             exit;
         }
 

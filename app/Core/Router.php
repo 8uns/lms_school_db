@@ -58,7 +58,7 @@ class Router
         }
 
         http_response_code(404);
-        View::render('errors/404');
+        View::renderPage('errors/404');
         exit;
     }
 }

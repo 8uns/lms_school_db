@@ -9,4 +9,11 @@ class View
         extract($data);
         require __DIR__ . "/../View/" . $view . ".php";
     }
+
+    public static function renderPage(string $view, $data = [])
+    {
+        Self::render('layouts/header');
+        Self::render($view, $data);
+        Self::render('layouts/footer');
+    }
 }
