@@ -55,6 +55,7 @@ Router::add('GET', '/admin/guru', AdminGuruController::class, 'index', [AuthMidd
 Router::add('POST', '/admin/guru', AdminGuruController::class, 'createGuru', [AuthMiddleware::class,  RoleMiddleware::class . ':Admin']); // create admin
 Router::add('POST', '/admin/guru/([0-9]*)', AdminGuruController::class, 'updateGuru', [AuthMiddleware::class,  RoleMiddleware::class . ':Admin']); // update guru
 Router::add('GET', '/admin/guru/del/([0-9]*)', AdminGuruController::class, 'deleteGuru', [AuthMiddleware::class,  RoleMiddleware::class . ':Admin']); // delete guru
+Router::add('GET', '/admin/guru/reset/([0-9]*)', AdminGuruController::class, 'resetPassword', [AuthMiddleware::class,  RoleMiddleware::class . ':Admin']); // delete guru
 
 // siswa management
 Router::add('GET', '/admin/siswa', AdminSiswaController::class, 'index', [AuthMiddleware::class,  RoleMiddleware::class . ':Admin']); // menu manage siswa

@@ -4,6 +4,7 @@
                 modaladd: false, 
                 modaledit: false,
                 modaldel: false,
+                modalresetpass: false,
                 userdata: {user_id : '', username : '', full_name : ''}
                  }">
     <div class="pl-15 pr-15 pb-15 pt-0">
@@ -44,6 +45,17 @@
                                             <td class="px-4 py-2"><?= $user['full_name']; ?></td>
                                             <td class="px-4 py-2"><?= $user['username']; ?></td>
                                             <td class="px-4 py-2 flex justify-center gap-2">
+                                                <div class="w-auto relative">
+                                                    <button
+                                                        @click="
+                                                    userdata = {user_id : '<?= $user['id'] ?>', username : '<?= $user['username'] ?>', full_name : '<?= $user['full_name'] ?>'}; 
+                                                    modalresetpass = !modalresetpass
+                                                    "
+                                                        type="button" class="cursor-pointer  w-full rounded-2xl py-3 px-5 hover:from-slate-600 hover:to-slate-500 transition-all duration-300 hover:text-green-600 hover:shadow-lg active:scale-[0.98]">
+                                                        <i class="ri-rotate-lock-line"></i>
+                                                    </button>
+                                                </div>
+
                                                 <div class="w-auto relative">
                                                     <button
                                                         @click="
@@ -101,7 +113,7 @@
                     </div>
                 </div>
 
-                  <div class="mb-8 relative">
+                <div class="mb-8 relative">
                     <label for="" class="text-gray-600 text-sm">Nama Lengkap</label>
                     <input required name="full_name" type="text" class="border text-gray-700 border-gray-400 bg-white w-full rounded-2xl py-3 px-10 text-sm" placeholder="nama lengkap ...">
                 </div>
@@ -193,5 +205,48 @@
         </div>
     </div>
     <!-- end modal delete user-->
+
+    <!-- start modal reset password -->
+    <div class="fixed h-screen w-screen bg-black/50 left-0 top-0 z-50" x-cloak x-show="modalresetpass">
+        <div class="bg-white w-1/3 mx-auto mt-40 rounded-2xl p-10" @click.away="modalresetpass = false">
+            <div class="flex justify-center text-center">
+                <h6 class="text-lg mb-5 text-center">
+                    Reset Password dari Akun
+                    <span x-text="userdata.full_name" class="font-bold"></span>
+                    ?
+                </h6>
+
+            </div>
+            <div class="flex justify-center text-center text-gray-500 text-sm font-bold mb-4">
+                <p>Password yang direset sama dengan username!</p>
+            </div>
+
+            <div class="flex justify-center text-center text-gray-500 text-sm font-bold mb-4">
+                <p>username: </p>
+                <span x-text="userdata.username" class="font-bold"></span>
+            </div>
+
+
+            <div class="flex justify-around">
+                <div class="mb-5 relative">
+                    <a :href="'<?= base_url('/admin/guru/reset') ?>/' + userdata.user_id" type="button" class="block font-bold cursor-pointer bg-gradient-to-r from-rose-600 to-red-500 w-full rounded-2xl text-white py-3 px-10 hover:from-rose-700 hover:to-red-600 transition-all duration-300 shadow-md hover:shadow-lg active:scale-[0.98]">
+                        Ya Reset
+                    </a>
+                </div>
+
+                <div class="mb-5 relative">
+                    <button
+                        @click="modalresetpass = !modalresetpass"
+                        type="button" class="cursor-pointer font-bold bg-gradient-to-r from-slate-500 to-slate-400 w-full rounded-2xl text-white py-3 px-10 hover:from-slate-600 hover:to-slate-500 transition-all duration-300 shadow-md hover:shadow-lg active:scale-[0.98]">
+                        Tidak
+                    </button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <!-- end modal reset password-->
+
 </div>
 <!-- main end -->

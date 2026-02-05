@@ -123,13 +123,14 @@ class UserModel
         return $this->update($id, $data);
     }
 
-
-    public function updatePassword(int $id, string $newPassword)
+    public function resetPasswordToDefault(int $id)
     {
         try {
-            $stmt = $this->db->prepare("UPDATE users SET password = ? WHERE id = ?");
+            $user = $this->getById($id);
+            if (!$user) return false;
+            $stmt = $this->db->prepare("UPDATE users SET password = ?, must_reset_password = TRUE WHERE id = ?");
             return $stmt->execute([
-                password_hash($newPassword, PASSWORD_DEFAULT),
+                password_hash($user['username'], PASSWORD_DEFAULT),
                 $id
             ]);
         } catch (Exception $e) {

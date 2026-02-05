@@ -18,7 +18,7 @@ class AdminGuruController extends Controller
     }
     public function index(): void
     {
-       $data['page'] = 'Akun Guru';
+        $data['page'] = 'Akun Guru';
         $data['subpage'] = false;
         $data['full_name'] = Session::get('full_name');
         $data['role'] = Session::get('role');
@@ -60,4 +60,12 @@ class AdminGuruController extends Controller
         }
     }
 
+    public function resetPassword($id): void
+    {
+        if ($this->userModel->resetPasswordToDefault($id)) {
+            $this->redirect('/admin/guru');
+        } else {
+            $this->redirect('/admin/guru');
+        }
+    }
 }
