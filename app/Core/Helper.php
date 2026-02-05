@@ -34,4 +34,9 @@ class Helper
         header("Location: " . self::baseUrl($url));
         exit;
     }
+
+    public static function jsonFormat($data){
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode($data);
+    }
 }

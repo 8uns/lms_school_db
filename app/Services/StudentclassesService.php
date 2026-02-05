@@ -4,19 +4,16 @@ namespace App\Services;
 
 use App\Models\AcademicyearsModel;
 use App\Models\StudentclassesModel;
-use App\Core\Request;
 
 class StudentclassesService
 {
     private AcademicyearsModel $academicYearsModel;
     private StudentclassesModel $studentclassesModel;
-    private Request $request;
 
     public function __construct()
     {
         $this->academicYearsModel = new AcademicyearsModel();
         $this->studentclassesModel = new StudentclassesModel();
-        $this->request = new Request;
     }
 
     public function getAcademicyearId($academic_year_id = null)

@@ -28,9 +28,9 @@ class UserModel
         $stmt->execute([$id]);
         return $stmt->fetch();
     }
-     public function getUserAdmin()
+    public function getUserAdmin()
     {
-        $stmt = $this->db->prepare("SELECT * FROM users WHERE is_deleted = FALSE AND role IN('SuperAdmin', 'Admin') LIMIT 0,10");
+        $stmt = $this->db->prepare("SELECT * FROM users WHERE is_deleted = FALSE AND role IN('SuperAdmin', 'Admin')");
         $stmt->execute();
         return $stmt->fetchAll();
     }
@@ -42,7 +42,7 @@ class UserModel
     }
     public function getSiswa()
     {
-        $stmt = $this->db->prepare("SELECT * FROM users WHERE is_deleted = FALSE AND role = 'Siswa' LIMIT 0,10");
+        $stmt = $this->db->prepare("SELECT * FROM users WHERE is_deleted = FALSE AND role = 'Siswa'");
         $stmt->execute();
         return $stmt->fetchAll();
     }
@@ -75,6 +75,26 @@ class UserModel
     {
         $data['role'] = 'Siswa';
         return $this->create($data);
+    }
+
+    public function createSiswaFromImport(array $data): bool
+    {
+        try {
+            // Tambahkan is_deleted false secara eksplisit jika perlu, 
+            // tapi default DB sudah FALSE
+            $sql = "INSERT INTO users (username, password, full_name, role) 
+                VALUES (:username, :password, :full_name, :role)";
+
+            $stmt = $this->db->prepare($sql);
+            return $stmt->execute([
+                ':username'  => $data['username'],
+                ':password'  => password_hash($data['password'], PASSWORD_DEFAULT),
+                ':full_name' => $data['full_name'],
+                ':role'      => $data['role']
+            ]);
+        } catch (Exception $e) {
+            return false;
+        }
     }
 
     // update data
@@ -116,7 +136,7 @@ class UserModel
             return false;
         }
     }
-    
+
 
     // delete data
     public function delete(int $id)
@@ -128,5 +148,4 @@ class UserModel
             return false;
         }
     }
-    
 }

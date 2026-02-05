@@ -59,6 +59,7 @@ Router::add('GET', '/admin/guru/del/([0-9]*)', AdminGuruController::class, 'dele
 // siswa management
 Router::add('GET', '/admin/siswa', AdminSiswaController::class, 'index', [AuthMiddleware::class,  RoleMiddleware::class . ':Admin']); // menu manage siswa
 Router::add('POST', '/admin/siswa', AdminSiswaController::class, 'createSiswa', [AuthMiddleware::class,  RoleMiddleware::class . ':Admin']); // create siswa
+Router::add('POST', '/admin/siswa/import', AdminSiswaController::class, 'importStudents', [AuthMiddleware::class,  RoleMiddleware::class . ':Admin']); // import siswa
 Router::add('POST', '/admin/siswa/([0-9]*)', AdminSiswaController::class, 'updateSiswa', [AuthMiddleware::class,  RoleMiddleware::class . ':Admin']); // update siswa
 Router::add('GET', '/admin/siswa/del/([0-9]*)', AdminSiswaController::class, 'deleteSiswa', [AuthMiddleware::class,  RoleMiddleware::class . ':Admin']); // delete siswa
 

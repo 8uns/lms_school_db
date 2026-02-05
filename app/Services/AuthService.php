@@ -30,7 +30,7 @@ class AuthService
         return false;
     }
 
-    public static function logout()
+    public function logout()
     {
         Session::destroy();
     }
