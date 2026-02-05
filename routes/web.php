@@ -19,6 +19,7 @@ use App\Controllers\Admin\AdminStudentclassesController;
 use App\Controllers\Admin\AdminSubjectController;
 use App\Controllers\Admin\AdminTeacherassignmentsController;
 use App\Controllers\Admin\ComingSoonController;
+use App\Controllers\Guru\GuruBanksoalController;
 use App\Controllers\Guru\GuruDashboardController;
 
 
@@ -110,15 +111,17 @@ Router::add('GET', '/admin/rekap-data', ComingSoonController::class, 'rekap', [A
 
 #####// Guru Dashboard
 Router::add('GET', '/guru/dashboard', GuruDashboardController::class, 'index', [AuthMiddleware::class,  RoleMiddleware::class . ':Guru']); // menu manage guru
+// Coming soon
 Router::add('GET', '/guru/bahan-ajar', GuruDashboardController::class, 'index', [AuthMiddleware::class,  RoleMiddleware::class . ':Guru']); // menu manage guru
 Router::add('GET', '/guru/diskusi-materi', GuruDashboardController::class, 'index', [AuthMiddleware::class,  RoleMiddleware::class . ':Guru']); // menu manage guru
 Router::add('GET', '/guru/akses-perencanaan', GuruDashboardController::class, 'index', [AuthMiddleware::class,  RoleMiddleware::class . ':Guru']); // menu manage guru
-Router::add('GET', '/guru/bank-soal', GuruDashboardController::class, 'index', [AuthMiddleware::class,  RoleMiddleware::class . ':Guru']); // menu manage guru
 Router::add('GET', '/guru/daftar-asesmen', GuruDashboardController::class, 'index', [AuthMiddleware::class,  RoleMiddleware::class . ':Guru']); // menu manage guru
 Router::add('GET', '/guru/monitoring-ujian', GuruDashboardController::class, 'index', [AuthMiddleware::class,  RoleMiddleware::class . ':Guru']); // menu manage guru
 Router::add('GET', '/guru/koreksi-manual', GuruDashboardController::class, 'index', [AuthMiddleware::class,  RoleMiddleware::class . ':Guru']); // menu manage guru
 Router::add('GET', '/guru/daftar-nilai', GuruDashboardController::class, 'index', [AuthMiddleware::class,  RoleMiddleware::class . ':Guru']); // menu manage guru
 
+// Bank Soal
+Router::add('GET', '/guru/bank-soal', GuruBanksoalController::class, 'index', [AuthMiddleware::class,  RoleMiddleware::class . ':Guru']); // menu manage guru
 
 
 #####// Protected Routes (Butuh Login)
