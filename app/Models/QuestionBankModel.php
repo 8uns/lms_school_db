@@ -20,9 +20,12 @@ class QuestionBankModel
     public function getTeacherQuestionStatsByAcademicYear($academic_year_id = null)
     {
         $stmt = $this->db->prepare("SELECT 
+                                    s.subject_name subject_id,
                                     s.subject_name,
+                                    ay.id academic_year_id,
                                     ay.year_name,
                                     ay.semester,
+                                    c.id classroom_id,
                                     c.class_name,
                                     -- Menghitung jumlah soal yang sesuai dengan Mapel, Kelas, dan Tahun Ajaran
                                     (SELECT COUNT(*) 
@@ -53,9 +56,12 @@ class QuestionBankModel
     public function getTeacherQuestionStats()
     {
         $stmt = $this->db->prepare("SELECT 
+                                    s.subject_name subject_id,
                                     s.subject_name,
+                                    ay.id academic_year_id,
                                     ay.year_name,
                                     ay.semester,
+                                    c.id classroom_id,
                                     c.class_name,
                                     -- Menghitung jumlah soal yang sesuai dengan Mapel, Kelas, dan Tahun Ajaran
                                     (SELECT COUNT(*) 

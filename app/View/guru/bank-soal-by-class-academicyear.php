@@ -11,13 +11,7 @@
 
                     <div class="font-bold py-10 px-10 border-b border-gray-200 flex items-center justify-between">
                         <h6>
-                            <select
-                                x-data
-                                @change="if ($event.target.value) window.location.href = $event.target.value">
-                                <?php foreach ($data['academic_years'] as $val): ?>
-                                    <option <?= $selected = $val['id'] == $academic_year_id ? 'selected' :  '' ?> value="<?= base_url('/guru/bank-soal/ay/')  . $val['id'] ?>">Tahun Ajaran <?= $val['year_name'] . ' Semester ' . $val['semester'] ?></option>
-                                <?php endforeach; ?>
-                            </select>
+                            <?= 'Kelas ' . $classroom['class_name'], ' - Tahun Ajaran ' .  $academic_year['year_name'] . ' Semester ' . $academic_year['semester'] ?>
                         </h6>
 
                         <div class="relative flex gap-2">
@@ -35,10 +29,8 @@
                                 <thead>
                                     <tr class="h-20">
                                         <th class="">No</th>
-                                        <th class="">Mata Pelajaran</th>
-                                        <th class="">Kelas</th>
-                                        <th class="">Tahun Ajaran</th>
-                                        <th class="">Total Soal</th>
+                                        <th class="">Soal</th>
+                                        <th class="">Jenis</th>
                                         <th class="">Aksi</th>
                                     </tr>
                                 </thead>
@@ -55,7 +47,7 @@
 
                                             <td class="px-4 py-2 flex justify-center gap-2">
                                                 <div class="w-auto relative">
-                                                    <a href="<?= base_url('/guru/bank-soal/subject/' . $val['subject_id'] . '/class/' . $val['classroom_id'] . '/ay/' . $val['academic_year_id']) ?>"
+                                                    <a href="<?= base_url('/guru/bank-soal/class/' . $val['classroom_id'] . '/ay/' . $val['academic_year_id']) ?>"
                                                         class="cursor-pointer block w-full rounded-2xl py-3 px-5 hover:from-slate-600 hover:to-slate-500 transition-all duration-300 hover:text-green-600 hover:shadow-lg active:scale-[0.98]">
                                                         <i class="ri-eye-fill"></i>
                                                     </a>
